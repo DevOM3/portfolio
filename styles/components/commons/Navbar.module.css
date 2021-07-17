@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  height: 100vh;
+  background: black;
+  overflow: scroll;
+  flex-direction: column;
+  overflow: hidden;
+  transition: max-width 721ms ease-in-out, border-radius 571ms ease-in-out;
+}
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 7px;
+  padding-right: 21px;
+}
+
+.navbar li {
+  list-style: none;
+  margin-top: 44px;
+  margin-bottom: 44px;
+  width: 175px;
+}
+
+.links,
+.drawerToggleButton {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.links {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* border-radius: 51px; */
+  transition: all 444ms !important;
+}
+
+.links:hover {
+  background: white;
+  color: black;
+  border-radius: 51px;
+}
+
+.drawerToggleButton {
+  cursor: pointer;
+  padding-left: 12px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-radius: 51px;
+  border-bottom-right-radius: 0;
+  transition: all 444ms !important;
+}
