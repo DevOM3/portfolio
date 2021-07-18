@@ -14,15 +14,17 @@
 .navbar ul {
   margin: 0;
   padding: 0;
-  padding-left: 7px;
-  padding-right: 21px;
 }
 
 .navbar li {
   list-style: none;
-  margin-top: 44px;
-  margin-bottom: 44px;
-  width: 175px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 7px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .links,
@@ -42,17 +44,67 @@
 }
 
 .links:hover {
-  background: white;
-  color: black;
-  border-radius: 51px;
+  background: white !important;
+  color: black !important;
+  border-top-left-radius: 51px !important;
+  border-bottom-left-radius: 51px !important;
+}
+
+.links:hover .linkIcons {
+  color: black !important;
+  transition: all 444ms;
+}
+
+.icon {
+  width: 44px;
 }
 
 .drawerToggleButton {
   cursor: pointer;
-  padding-left: 12px;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  padding-left: 21px;
   padding-top: 11px;
   padding-bottom: 11px;
-  border-radius: 51px;
-  border-bottom-right-radius: 0;
-  transition: all 444ms !important;
+  border-radius: 0px;
+  margin-left: 0 !important;
+  margin-right: 21px !important;
+  transition: all 1024ms;
+}
+
+.navbar li b:nth-child(1) {
+  position: absolute;
+  top: -20px;
+  height: 20px;
+  width: 100%;
+  background: white;
+}
+
+.navbar li b:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 21px;
+  background: black;
+}
+.navbar li b:nth-child(2) {
+  position: absolute;
+  bottom: -20px;
+  height: 20px;
+  width: 100%;
+  background: white;
+}
+
+.navbar li b:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 21px;
+  background: black;
 }

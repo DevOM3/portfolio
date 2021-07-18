@@ -44,91 +44,295 @@ const Navbar = () => {
       className={navbarStyles.navbar}
       style={{
         maxWidth: drawerIsOpen ? 500 : 69,
-        borderTopRightRadius: drawerIsOpen ? "44%" : 0,
-        borderBottomRightRadius: drawerIsOpen ? "44%" : 0,
+        borderTopRightRadius: drawerIsOpen ? 11 : 0,
+        borderBottomRightRadius: drawerIsOpen ? 11 : 0,
       }}
     >
       <ul>
         <li
           className={navbarStyles.drawerToggleButton}
           onClick={toggleDrawer}
-          style={{ background: drawerIsOpen ? "tomato" : "transparent" }}
+          style={{
+            background: drawerIsOpen ? "red" : "transparent",
+            maxWidth: drawerIsOpen ? 100 : 500,
+            borderTopRightRadius: drawerIsOpen ? 51 : 0,
+            borderBottomRightRadius: drawerIsOpen ? 51 : 0,
+          }}
         >
-          <RiMenuUnfoldLine
-            fontSize={30}
-            id="toggle-button"
-            style={{ transition: "transform 444ms" }}
-          />
-          &nbsp;&nbsp;&nbsp;&nbsp; Close
+          <div className={navbarStyles.icon}>
+            <RiMenuUnfoldLine
+              fontSize={30}
+              id="toggle-button"
+              style={{
+                transition: "transform 444ms",
+              }}
+            />
+          </div>
         </li>
         <li>
+          <b
+            style={{ display: router.pathname === "/" ? "block" : "none" }}
+          ></b>
+          <b
+            style={{ display: router.pathname === "/" ? "block" : "none" }}
+          ></b>
           <Link href="/">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/" ? (
-                <AiFillHome fontSize={30} />
-              ) : (
-                <AiOutlineHome fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background: router.pathname === "/" ? "white" : "black",
+                color: router.pathname === "/" ? "black" : "white",
+                borderTopLeftRadius: router.pathname === "/" ? 51 : 0,
+                borderBottomLeftRadius: router.pathname === "/" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/" ? (
+                  <AiFillHome
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/" ? "orange" : "white",
+                    }}
+                  />
+                ) : (
+                  <AiOutlineHome
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/" ? "orange" : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;Home
             </a>
           </Link>
         </li>
         <li>
+          <b
+            style={{
+              display: router.pathname === "/projects" ? "block" : "none",
+            }}
+          ></b>
+          <b
+            style={{
+              display: router.pathname === "/projects" ? "block" : "none",
+            }}
+          ></b>
           <Link href="/projects">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/projects" ? (
-                <TiCode fontSize={30} />
-              ) : (
-                <TiCodeOutline fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background: router.pathname === "/projects" ? "white" : "black",
+                color: router.pathname === "/projects" ? "black" : "white",
+                borderTopLeftRadius: router.pathname === "/projects" ? 51 : 0,
+                borderBottomLeftRadius:
+                  router.pathname === "/projects" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/projects" ? (
+                  <TiCode
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color:
+                        router.pathname === "/projects"
+                          ? "rgb(34, 160, 234)"
+                          : "white",
+                    }}
+                  />
+                ) : (
+                  <TiCodeOutline
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color:
+                        router.pathname === "/projects"
+                          ? "rgb(34, 160, 234)"
+                          : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;Projects
             </a>
           </Link>
         </li>
         <li>
+          <b
+            style={{
+              display: router.pathname === "/achievements" ? "block" : "none",
+            }}
+          ></b>
+          <b
+            style={{
+              display: router.pathname === "/achievements" ? "block" : "none",
+            }}
+          ></b>
           <Link href="/achievements">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/achievements" ? (
-                <AiFillTrophy fontSize={30} />
-              ) : (
-                <AiOutlineTrophy fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background:
+                  router.pathname === "/achievements" ? "white" : "black",
+                color: router.pathname === "/achievements" ? "black" : "white",
+                borderTopLeftRadius:
+                  router.pathname === "/achievements" ? 51 : 0,
+                borderBottomLeftRadius:
+                  router.pathname === "/achievements" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/achievements" ? (
+                  <AiFillTrophy
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color:
+                        router.pathname === "/achievements"
+                          ? "goldenrod"
+                          : "white",
+                    }}
+                  />
+                ) : (
+                  <AiOutlineTrophy
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color:
+                        router.pathname === "/achievements"
+                          ? "goldenrod"
+                          : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;Achievements
             </a>
           </Link>
         </li>
         <li>
+          <b
+            style={{ display: router.pathname === "/blog" ? "block" : "none" }}
+          ></b>
+          <b
+            style={{ display: router.pathname === "/blog" ? "block" : "none" }}
+          ></b>
           <Link href="/blog">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/blog" ? (
-                <RiPagesFill fontSize={30} />
-              ) : (
-                <RiPagesLine fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background: router.pathname === "/blog" ? "white" : "black",
+                color: router.pathname === "/blog" ? "black" : "white",
+                borderTopLeftRadius: router.pathname === "/blog" ? 51 : 0,
+                borderBottomLeftRadius: router.pathname === "/blog" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/blog" ? (
+                  <RiPagesFill
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/blog" ? "purple" : "white",
+                    }}
+                  />
+                ) : (
+                  <RiPagesLine
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/blog" ? "purple" : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;Blog
             </a>
           </Link>
         </li>
         <li>
+          <b
+            style={{
+              display: router.pathname === "/contact" ? "block" : "none",
+            }}
+          ></b>
+          <b
+            style={{
+              display: router.pathname === "/contact" ? "block" : "none",
+            }}
+          ></b>
           <Link href="/contact">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/contact" ? (
-                <AiFillMessage fontSize={30} />
-              ) : (
-                <AiOutlineMessage fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background: router.pathname === "/contact" ? "white" : "black",
+                color: router.pathname === "/contact" ? "black" : "white",
+                borderTopLeftRadius: router.pathname === "/contact" ? 51 : 0,
+                borderBottomLeftRadius: router.pathname === "/contact" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/contact" ? (
+                  <AiFillMessage
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/contact" ? "grey" : "white",
+                    }}
+                  />
+                ) : (
+                  <AiOutlineMessage
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/contact" ? "grey" : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;Contact
             </a>
           </Link>
         </li>
         <li>
+          <b
+            style={{ display: router.pathname === "/about" ? "block" : "none" }}
+          ></b>
+          <b
+            style={{ display: router.pathname === "/about" ? "block" : "none" }}
+          ></b>
           <Link href="/about">
-            <a className={navbarStyles.links}>
-              {router.pathname === "/about" ? (
-                <TiInfoLarge fontSize={30} />
-              ) : (
-                <TiInfoLargeOutline fontSize={30} />
-              )}
+            <a
+              className={navbarStyles.links}
+              style={{
+                background: router.pathname === "/about" ? "white" : "black",
+                color: router.pathname === "/about" ? "black" : "white",
+                borderTopLeftRadius: router.pathname === "/about" ? 51 : 0,
+                borderBottomLeftRadius: router.pathname === "/about" ? 51 : 0,
+              }}
+            >
+              <div className={navbarStyles.icon}>
+                {router.pathname === "/about" ? (
+                  <TiInfoLarge
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/about" ? "#3F66DA" : "white",
+                    }}
+                  />
+                ) : (
+                  <TiInfoLargeOutline
+                    fontSize={30}
+                    className={navbarStyles.linkIcons}
+                    style={{
+                      color: router.pathname === "/about" ? "#3F66DA" : "white",
+                    }}
+                  />
+                )}
+              </div>
               &nbsp;&nbsp;&nbsp;&nbsp;About
             </a>
           </Link>
