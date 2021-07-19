@@ -71,10 +71,10 @@ const Navbar = () => {
         </li>
         <li>
           <b
-            style={{ display: router.pathname === "/" ? "block" : "none" }}
+            style={{ background: router.pathname === "/" ? "white" : "black" }}
           ></b>
           <b
-            style={{ display: router.pathname === "/" ? "block" : "none" }}
+            style={{ background: router.pathname === "/" ? "white" : "black" }}
           ></b>
           <Link href="/">
             <a
@@ -82,8 +82,8 @@ const Navbar = () => {
               style={{
                 background: router.pathname === "/" ? "white" : "black",
                 color: router.pathname === "/" ? "black" : "white",
-                borderTopLeftRadius: router.pathname === "/" ? 51 : 0,
-                borderBottomLeftRadius: router.pathname === "/" ? 51 : 0,
+                borderTopLeftRadius: router.pathname === "/" ? 51 : 11,
+                borderBottomLeftRadius: router.pathname === "/" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
@@ -92,7 +92,7 @@ const Navbar = () => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/" ? "orange" : "white",
+                      color: router.pathname === "/" ? "#F7444E" : "white",
                     }}
                   />
                 ) : (
@@ -100,7 +100,7 @@ const Navbar = () => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/" ? "orange" : "white",
+                      color: router.pathname === "/" ? "#F7444E" : "white",
                     }}
                   />
                 )}
@@ -112,12 +112,12 @@ const Navbar = () => {
         <li>
           <b
             style={{
-              display: router.pathname === "/projects" ? "block" : "none",
+              background: router.pathname === "/projects" ? "white" : "black",
             }}
           ></b>
           <b
             style={{
-              display: router.pathname === "/projects" ? "block" : "none",
+              background: router.pathname === "/projects" ? "white" : "black",
             }}
           ></b>
           <Link href="/projects">
@@ -126,9 +126,9 @@ const Navbar = () => {
               style={{
                 background: router.pathname === "/projects" ? "white" : "black",
                 color: router.pathname === "/projects" ? "black" : "white",
-                borderTopLeftRadius: router.pathname === "/projects" ? 51 : 0,
+                borderTopLeftRadius: router.pathname === "/projects" ? 51 : 11,
                 borderBottomLeftRadius:
-                  router.pathname === "/projects" ? 51 : 0,
+                  router.pathname === "/projects" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
@@ -163,12 +163,14 @@ const Navbar = () => {
         <li>
           <b
             style={{
-              display: router.pathname === "/achievements" ? "block" : "none",
+              background:
+                router.pathname === "/achievements" ? "white" : "black",
             }}
           ></b>
           <b
             style={{
-              display: router.pathname === "/achievements" ? "block" : "none",
+              background:
+                router.pathname === "/achievements" ? "white" : "black",
             }}
           ></b>
           <Link href="/achievements">
@@ -179,9 +181,9 @@ const Navbar = () => {
                   router.pathname === "/achievements" ? "white" : "black",
                 color: router.pathname === "/achievements" ? "black" : "white",
                 borderTopLeftRadius:
-                  router.pathname === "/achievements" ? 51 : 0,
+                  router.pathname === "/achievements" ? 51 : 11,
                 borderBottomLeftRadius:
-                  router.pathname === "/achievements" ? 51 : 0,
+                  router.pathname === "/achievements" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
@@ -192,7 +194,7 @@ const Navbar = () => {
                     style={{
                       color:
                         router.pathname === "/achievements"
-                          ? "goldenrod"
+                          ? "orange"
                           : "white",
                     }}
                   />
@@ -203,7 +205,7 @@ const Navbar = () => {
                     style={{
                       color:
                         router.pathname === "/achievements"
-                          ? "goldenrod"
+                          ? "orange"
                           : "white",
                     }}
                   />
@@ -215,10 +217,14 @@ const Navbar = () => {
         </li>
         <li>
           <b
-            style={{ display: router.pathname === "/blog" ? "block" : "none" }}
+            style={{
+              background: router.pathname === "/blog" ? "white" : "black",
+            }}
           ></b>
           <b
-            style={{ display: router.pathname === "/blog" ? "block" : "none" }}
+            style={{
+              background: router.pathname === "/blog" ? "white" : "black",
+            }}
           ></b>
           <Link href="/blog">
             <a
@@ -226,8 +232,8 @@ const Navbar = () => {
               style={{
                 background: router.pathname === "/blog" ? "white" : "black",
                 color: router.pathname === "/blog" ? "black" : "white",
-                borderTopLeftRadius: router.pathname === "/blog" ? 51 : 0,
-                borderBottomLeftRadius: router.pathname === "/blog" ? 51 : 0,
+                borderTopLeftRadius: router.pathname === "/blog" ? 51 : 11,
+                borderBottomLeftRadius: router.pathname === "/blog" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
@@ -256,12 +262,12 @@ const Navbar = () => {
         <li>
           <b
             style={{
-              display: router.pathname === "/contact" ? "block" : "none",
+              background: router.pathname === "/contact" ? "white" : "black",
             }}
           ></b>
           <b
             style={{
-              display: router.pathname === "/contact" ? "block" : "none",
+              background: router.pathname === "/contact" ? "white" : "black",
             }}
           ></b>
           <Link href="/contact">
@@ -270,8 +276,9 @@ const Navbar = () => {
               style={{
                 background: router.pathname === "/contact" ? "white" : "black",
                 color: router.pathname === "/contact" ? "black" : "white",
-                borderTopLeftRadius: router.pathname === "/contact" ? 51 : 0,
-                borderBottomLeftRadius: router.pathname === "/contact" ? 51 : 0,
+                borderTopLeftRadius: router.pathname === "/contact" ? 51 : 11,
+                borderBottomLeftRadius:
+                  router.pathname === "/contact" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
@@ -299,10 +306,14 @@ const Navbar = () => {
         </li>
         <li>
           <b
-            style={{ display: router.pathname === "/about" ? "block" : "none" }}
+            style={{
+              background: router.pathname === "/about" ? "white" : "black",
+            }}
           ></b>
           <b
-            style={{ display: router.pathname === "/about" ? "block" : "none" }}
+            style={{
+              background: router.pathname === "/about" ? "white" : "black",
+            }}
           ></b>
           <Link href="/about">
             <a
@@ -310,8 +321,8 @@ const Navbar = () => {
               style={{
                 background: router.pathname === "/about" ? "white" : "black",
                 color: router.pathname === "/about" ? "black" : "white",
-                borderTopLeftRadius: router.pathname === "/about" ? 51 : 0,
-                borderBottomLeftRadius: router.pathname === "/about" ? 51 : 0,
+                borderTopLeftRadius: router.pathname === "/about" ? 51 : 11,
+                borderBottomLeftRadius: router.pathname === "/about" ? 51 : 11,
               }}
             >
               <div className={navbarStyles.icon}>
