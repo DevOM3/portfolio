@@ -2,9 +2,9 @@
   display: flex;
   height: 100vh;
   background: black;
-  overflow: scroll;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   transition: max-width 721ms ease-in-out, border-radius 571ms ease-in-out;
 }
 .navbar::-webkit-scrollbar {
@@ -39,20 +39,20 @@
   padding-bottom: 11px;
   padding-left: 15px;
   padding-right: 15px;
-  /* border-radius: 51px; */
   transition: all 444ms !important;
 }
 
-.links:hover {
-  background: white !important;
-  color: black !important;
-  border-top-left-radius: 51px !important;
-  border-bottom-left-radius: 51px !important;
-}
-
-.links:hover .linkIcons {
-  color: black !important;
-  transition: all 444ms;
+@media only screen and (min-width: 750px) {
+  .links:hover {
+    background: white !important;
+    color: grey !important;
+    border-top-left-radius: 51px !important;
+    border-bottom-left-radius: 51px !important;
+  }
+  .links:hover .linkIcons {
+    color: grey !important;
+    transition: all 444ms;
+  }
 }
 
 .icon {
@@ -89,6 +89,7 @@
   height: 100%;
   border-bottom-right-radius: 21px;
   background: black;
+  transition: border-radius 1221ms ease-in-out;
 }
 .navbar li b:nth-child(2) {
   position: absolute;
@@ -107,4 +108,5 @@
   height: 100%;
   border-top-right-radius: 21px;
   background: black;
+  transition: border-radius 1221ms ease-in-out;
 }

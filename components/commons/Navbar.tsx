@@ -44,8 +44,8 @@ const Navbar = () => {
       className={navbarStyles.navbar}
       style={{
         maxWidth: drawerIsOpen ? 500 : 69,
-        borderTopRightRadius: drawerIsOpen ? 11 : 0,
-        borderBottomRightRadius: drawerIsOpen ? 11 : 0,
+        borderTopRightRadius: drawerIsOpen ? 4 : 0,
+        borderBottomRightRadius: drawerIsOpen ? 4 : 0,
       }}
     >
       <ul>
