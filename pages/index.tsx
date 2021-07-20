@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/pages/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/pages/Home.module.css";
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
         <title>DevOM</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.parallax}></div>
     </div>
-  )
+  );
 }

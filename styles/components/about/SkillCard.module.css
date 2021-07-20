@@ -1,0 +1,14 @@
+.skillCard {
+  border: 1px solid lightgrey;
+  border-radius: 51px;
+  margin: 4px;
+  padding: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.skillCard p {
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
