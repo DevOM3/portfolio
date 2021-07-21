@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import navbarStyles from "../../styles/components/commons/Navbar.module.css";
 import { useRouter } from "next/dist/client/router";
@@ -16,14 +16,9 @@ import {
   TiInfoLarge,
   TiInfoLargeOutline,
 } from "react-icons/ti";
-import {
-  RiMenuFoldLine,
-  RiMenuUnfoldLine,
-  RiPagesFill,
-  RiPagesLine,
-} from "react-icons/ri";
+import { RiMenuUnfoldLine, RiPagesFill, RiPagesLine } from "react-icons/ri";
 
-const Navbar = () => {
+const Navbar = ({ open }: any) => {
   const router = useRouter();
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
@@ -43,7 +38,7 @@ const Navbar = () => {
       id="navbar"
       className={navbarStyles.navbar}
       style={{
-        maxWidth: drawerIsOpen ? 500 : 69,
+        maxWidth: drawerIsOpen ? (open ? 500 : 0) : open ? 69 : 0,
         borderTopRightRadius: drawerIsOpen ? 4 : 0,
         borderBottomRightRadius: drawerIsOpen ? 4 : 0,
       }}

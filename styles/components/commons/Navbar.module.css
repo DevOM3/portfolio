@@ -42,6 +42,12 @@
   transition: all 751ms !important;
 }
 
+@media only screen and (max-width: 550px) {
+  .navbar {
+    height: calc(100vh - 71px);
+  }
+}
+
 @media only screen and (min-width: 750px) {
   .links:hover {
     background: white !important;
