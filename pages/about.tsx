@@ -19,11 +19,11 @@ const about = () => {
       <main id="main">
         <p className={aboutStyles.aboutText}>
           Firstly, thank you for scrolling down 😉. You are here because you may
-          be curious to know who am I or you may have to see what I've written
+          be curious to know who am I or you may have to see what I have written
           in the About section of the portfolio. My name is
-          <strong> Om Prashant Londhe</strong>{" "}
-          <small>({`${new Date().getFullYear() - 2003}`} years old)</small> and
-          I am a student who loves to develop something that can beat what I've
+          <strong> Om Prashant Londhe </strong>
+          <small>({new Date().getFullYear() - 2003} years old)</small> and I am
+          a student who loves to develop something that can beat what I have
           developed earlier. I love to make new things using a superpower called
           <strong> Programming</strong>.
           <br />
@@ -33,7 +33,7 @@ const about = () => {
           intoxication of programming helped me to learn more and more and
           ......
           <br />
-          Some of the things are given below-
+          Some of the things are given below
           <div className={aboutStyles.skillCards}>
             <SkillCard
               text="Frontend Development"
