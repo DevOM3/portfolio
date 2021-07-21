@@ -8,7 +8,12 @@ interface SkillCardProps {
 
 const SkillCard = ({ text, link }: SkillCardProps) => {
   return (
-    <a className={skillCardStyles.skillCard} href={link} target="_blank">
+    <a
+      className={skillCardStyles.skillCard}
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+    >
       <p>{text}</p>
     </a>
   );
