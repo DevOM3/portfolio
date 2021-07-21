@@ -89,7 +89,7 @@ const about = () => {
           <br />
           Acting towards a new idea and developing something is one side of a
           coin of my passion but the another side of that coin is very different
-          and it is called Gaming. I've been gaming since I was just 5 years
+          and it is called Gaming. I have been gaming since I was just 5 years
           old, it means before I started programming, I was a gamer!
         </p>
       </main>
