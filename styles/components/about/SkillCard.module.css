@@ -1,14 +1,52 @@
 .skillCard {
-  border: 1px solid lightgrey;
+  border: 2.4px solid black;
   border-radius: 51px;
   margin: 4px;
   padding: 7px;
   padding-left: 15px;
   padding-right: 15px;
+  animation: colorAnimation 24s ease-in-out 4s infinite;
+  color: whitesmoke;
+  /* background: rgb(19, 18, 18); */
+  font-weight: 600;
 }
 
 .skillCard p {
   margin: 0;
   padding: 0;
   font-size: large;
+}
+
+@keyframes colorAnimation {
+  0%,
+  100% {
+    background: yellowgreen;
+  }
+  10% {
+    background: darkorange;
+  }
+  20% {
+    background: coral;
+  }
+  30% {
+    background: hotpink;
+  }
+  40% {
+    background: blueviolet;
+  }
+  50% {
+    background: violet;
+  }
+  60% {
+    background: magenta;
+  }
+  70% {
+    background: deeppink;
+  }
+  80% {
+    background: orangered;
+  }
+  90% {
+    background: orange;
+  }
 }

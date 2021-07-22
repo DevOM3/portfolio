@@ -8,7 +8,7 @@
 }
 
 .parallax {
-  background: url("https://miro.medium.com/max/1400/1*iO7pN-_Ym9fAjlL7sFHl4w.gif");
+  background: url("../../public/images/aboutTop.gif");
   background-color: black;
   background-attachment: fixed;
   background-position: center;
@@ -139,7 +139,7 @@
 }
 
 .bottomParallax {
-  background: url("https://www.rajodibeachresort.com/wp-content/uploads/2020/03/Web-Under-Development.gif");
+  background: url("../../public/images/aboutBottom.gif");
   background-color: black;
   background-attachment: fixed;
   background-position: center;
