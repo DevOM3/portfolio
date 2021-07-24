@@ -1,9 +1,13 @@
 import { TextareaAutosize } from "@material-ui/core";
 import { SendRounded } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import contactStyles from "../styles/pages/Contact.module.css";
 
 const contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [description, setDescription] = useState("");
+
   const onContactInformationSubmit = () => {};
 
   return (
@@ -23,6 +27,8 @@ const contact = () => {
             type="text"
             autoComplete="none"
             placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className={contactStyles.inputContainer}>
@@ -35,6 +41,8 @@ const contact = () => {
             type="email"
             autoComplete="off"
             placeholder="Email (optional)"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className={contactStyles.inputContainer}>
@@ -45,10 +53,13 @@ const contact = () => {
             id="description"
             className={contactStyles.input}
             placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <button type="submit" className={contactStyles.submitButton}>
-          <p>Contact</p> <SendRounded />
+          <p>Contact</p>
+          <SendRounded className={contactStyles.sendIcon} />
         </button>
       </form>
     </div>
