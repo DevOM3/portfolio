@@ -282,7 +282,8 @@ const Navbar = ({ open }: any) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/contact" ? "grey" : "white",
+                      color:
+                        router.pathname === "/contact" ? "#26D9CA" : "white",
                     }}
                   />
                 ) : (
@@ -290,7 +291,8 @@ const Navbar = ({ open }: any) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/contact" ? "grey" : "white",
+                      color:
+                        router.pathname === "/contact" ? "#26D9CA" : "white",
                     }}
                   />
                 )}
