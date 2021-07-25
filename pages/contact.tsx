@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { db } from "../services/firebase";
 import contactStyles from "../styles/pages/Contact.module.css";
 
-const contact = () => {
+const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
@@ -99,4 +99,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
