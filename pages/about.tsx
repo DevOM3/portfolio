@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import SkillCard from "../components/about/SkillCard";
 import aboutStyles from "../styles/pages/About.module.css";
@@ -6,7 +7,7 @@ const about = () => {
   return (
     <div className={aboutStyles.about}>
       <div className={aboutStyles.parallax}>
-        <p className={aboutStyles.parallaxText}>Who am I?</p>
+        <motion.p className={aboutStyles.parallaxText}>Who am I?</motion.p>
         <a href="#main" className={aboutStyles.scrollIcon}>
           <div className={aboutStyles.container}>
             <div className={aboutStyles.chevron}></div>
