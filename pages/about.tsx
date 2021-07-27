@@ -1,13 +1,39 @@
 import { motion } from "framer-motion";
 import React from "react";
 import SkillCard from "../components/about/SkillCard";
+import {
+  aboutParallaxTextAnimationVariants,
+  aboutParallaxTextWordAnimationVariants,
+} from "../services/animations/about";
 import aboutStyles from "../styles/pages/About.module.css";
 
 const about = () => {
   return (
     <div className={aboutStyles.about}>
       <div className={aboutStyles.parallax}>
-        <motion.p className={aboutStyles.parallaxText}>Who am I?</motion.p>
+        <div className={aboutStyles.parallaxTextContainer}>
+          <motion.p
+            className={aboutStyles.parallaxText}
+            variants={aboutParallaxTextAnimationVariants}
+            initial="initial"
+            animate="animate"
+          >
+            {"Who am I".split(" ").map((word, index) => (
+              <motion.span
+                variants={aboutParallaxTextWordAnimationVariants}
+                style={{ display: "inline-block" }}
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+            <motion.span
+              variants={aboutParallaxTextWordAnimationVariants}
+              style={{ display: "inline-block" }}
+            >
+              ?
+            </motion.span>
+          </motion.p>
+        </div>
         <a href="#main" className={aboutStyles.scrollIcon}>
           <div className={aboutStyles.container}>
             <div className={aboutStyles.chevron}></div>
