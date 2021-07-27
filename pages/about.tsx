@@ -3,9 +3,82 @@ import React from "react";
 import SkillCard from "../components/about/SkillCard";
 import {
   aboutParallaxTextAnimationVariants,
-  aboutParallaxTextWordAnimationVariants,
+  aboutParallaxTextLetterAnimationVariants,
 } from "../services/animations/about";
 import aboutStyles from "../styles/pages/About.module.css";
+
+const skillArray = [
+  {
+    animationDelay: "0s",
+    text: "Frontend Development",
+    link: "https://www.techslang.com/definition/what-is-frontend-development/",
+  },
+  {
+    animationDelay: "100ms",
+    text: "Backend Development",
+    link: "https://www.guru99.com/what-is-backend-developer.html",
+  },
+  {
+    animationDelay: "200ms",
+    text: "Full-stack Development",
+    link: "https://www.geeksforgeeks.org/what-is-full-stack-development/#:~:text: Full%20stack%20development%3A%20It%20refers,side)%20portions%20of%20web%20application.&text: They%20work%20on%20the%20frontend,of%20web%20application%20or%20websites.",
+  },
+  {
+    animationDelay: "300ms",
+    text: "JAMstack Development",
+    link: "https://jamstack.org/what-is-jamstack/",
+  },
+  {
+    animationDelay: "400ms",
+    text: "MERN-Stack Development",
+    link: "https://www.mongodb.com/mern-stack",
+  },
+  {
+    animationDelay: "500ms",
+    text: "ReactJS",
+    link: "https://en.wikipedia.org/wiki/React_(JavaScript_library)",
+  },
+  {
+    animationDelay: "600ms",
+    text: "NextJS",
+    link: "https://en.wikipedia.org/wiki/Next.js",
+  },
+  {
+    animationDelay: "700ms",
+    text: "Web Development",
+    link: "https://en.wikipedia.org/wiki/Web_development",
+  },
+  {
+    animationDelay: "800ms",
+    text: "Firebase",
+    link: "https://en.wikipedia.org/wiki/Firebase",
+  },
+  {
+    animationDelay: "900ms",
+    text: "React Native",
+    link: "https://reactnative.dev/",
+  },
+  {
+    animationDelay: "1s",
+    text: "Flutter",
+    link: "https://flutter.dev/",
+  },
+  {
+    animationDelay: "1100ms",
+    text: "Progressive Web App",
+    link: "https://en.wikipedia.org/wiki/Progressive_web_application",
+  },
+  {
+    animationDelay: "1200ms",
+    text: "Mobile app Development",
+    link: "https://en.wikipedia.org/wiki/Mobile_app_development",
+  },
+  {
+    animationDelay: "1300ms",
+    text: "Game Development",
+    link: "https://www.freecodecamp.org/news/what-is-game-development/",
+  },
+];
 
 const about = () => {
   return (
@@ -18,21 +91,18 @@ const about = () => {
             initial="initial"
             animate="animate"
           >
-            {"Who am I".split(" ").map((word, index) => (
+            {"Who am I?".split("").map((letter, index) => (
               <motion.span
-                key={`word-${index}`}
-                variants={aboutParallaxTextWordAnimationVariants}
-                style={{ display: "inline-block" }}
+                key={`letter-${index}`}
+                variants={aboutParallaxTextLetterAnimationVariants}
+                style={{
+                  display: "inline-block",
+                  marginRight: index === 2 || index === 5 ? 44 : 0,
+                }}
               >
-                {word}&nbsp;
+                {letter}
               </motion.span>
             ))}
-            <motion.span
-              variants={aboutParallaxTextWordAnimationVariants}
-              style={{ display: "inline-block" }}
-            >
-              ?
-            </motion.span>
           </motion.p>
         </div>
         <a href="#main" className={aboutStyles.scrollIcon}>
@@ -63,76 +133,14 @@ const about = () => {
           <br />
           Some of the things are given below
           <div className={aboutStyles.skillCards}>
-            <SkillCard
-              animationDelay="0s"
-              text="Frontend Development"
-              link="https://www.techslang.com/definition/what-is-frontend-development/"
-            />
-            <SkillCard
-              animationDelay="100ms"
-              text="Backend Development"
-              link="https://www.guru99.com/what-is-backend-developer.html"
-            />
-            <SkillCard
-              animationDelay="200ms"
-              text="Full-stack Development"
-              link="https://www.geeksforgeeks.org/what-is-full-stack-development/#:~:text=Full%20stack%20development%3A%20It%20refers,side)%20portions%20of%20web%20application.&text=They%20work%20on%20the%20frontend,of%20web%20application%20or%20websites."
-            />
-            <SkillCard
-              animationDelay="300ms"
-              text="JAMstack Development"
-              link="https://jamstack.org/what-is-jamstack/"
-            />
-            <SkillCard
-              animationDelay="400ms"
-              text="MERN-Stack Development"
-              link="https://www.mongodb.com/mern-stack"
-            />
-            <SkillCard
-              animationDelay="500ms"
-              text="ReactJS"
-              link="https://en.wikipedia.org/wiki/React_(JavaScript_library)"
-            />
-            <SkillCard
-              animationDelay="600ms"
-              text="NextJS"
-              link="https://en.wikipedia.org/wiki/Next.js"
-            />
-            <SkillCard
-              animationDelay="700ms"
-              text="Web Development"
-              link="https://en.wikipedia.org/wiki/Web_development"
-            />
-            <SkillCard
-              animationDelay="800ms"
-              text="Firebase"
-              link="https://en.wikipedia.org/wiki/Firebase"
-            />
-            <SkillCard
-              animationDelay="900ms"
-              text="React Native"
-              link="https://reactnative.dev/"
-            />
-            <SkillCard
-              animationDelay="1s"
-              text="Flutter"
-              link="https://flutter.dev/"
-            />
-            <SkillCard
-              animationDelay="1100ms"
-              text="Progressive Web App"
-              link="https://en.wikipedia.org/wiki/Progressive_web_application"
-            />
-            <SkillCard
-              animationDelay="1200ms"
-              text="Mobile app Development"
-              link="https://en.wikipedia.org/wiki/Mobile_app_development"
-            />
-            <SkillCard
-              animationDelay="1300ms"
-              text="Game Development"
-              link="https://www.freecodecamp.org/news/what-is-game-development/"
-            />
+            {skillArray.map((skill, index) => {
+              <SkillCard
+                key={index}
+                animationDelay={skill.animationDelay}
+                text={skill.text}
+                link={skill.link}
+              />;
+            })}
           </div>
           <br />
           Acting towards a new idea and developing something is one side of a
