@@ -20,6 +20,7 @@ const about = () => {
           >
             {"Who am I".split(" ").map((word, index) => (
               <motion.span
+                key={`word-${index}`}
                 variants={aboutParallaxTextWordAnimationVariants}
                 style={{ display: "inline-block" }}
               >
