@@ -5,9 +5,8 @@
   padding: 7px;
   padding-left: 15px;
   padding-right: 15px;
-  animation: colorAnimation 24s ease-in-out 4s infinite;
+  animation: colorAnimation 24s ease-in-out infinite;
   color: whitesmoke;
-  /* background: rgb(19, 18, 18); */
   font-weight: 600;
 }
 

@@ -1,6 +1,8 @@
 import { TextareaAutosize } from "@material-ui/core";
 import { DoneOutlineRounded, SendRounded } from "@material-ui/icons";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { pageAnimationVariants } from "../services/animations/common";
 import { db } from "../services/firebase";
 import contactStyles from "../styles/pages/Contact.module.css";
 
@@ -27,7 +29,13 @@ const Contact = () => {
   };
 
   return (
-    <div className={contactStyles.contact}>
+    <motion.div
+      className={contactStyles.contact}
+      variants={pageAnimationVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <form
         onSubmit={(e) => onContactInformationSubmit(e)}
         className={contactStyles.form}
@@ -95,7 +103,7 @@ const Contact = () => {
           </button>
         )}
       </form>
-    </div>
+    </motion.div>
   );
 };
 
