@@ -110,7 +110,7 @@ const skillArray = [
   },
 ];
 
-const about = () => {
+const About = () => {
   const animate = useAnimation();
   const [ref, inView] = useInView();
 
@@ -219,4 +219,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
