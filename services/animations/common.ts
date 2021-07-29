@@ -7,13 +7,13 @@ export const pageAnimationVariants: Variants = {
   animate: {
     x: 0,
     transition: {
-      duration: 0.21,
+      duration: 0.4,
     },
   },
   exit: {
     x: "100vw",
     transition: {
-      duration: 0.21,
+      duration: 0.4,
     },
   },
 };

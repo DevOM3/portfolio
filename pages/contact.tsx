@@ -3,6 +3,11 @@ import { DoneOutlineRounded, SendRounded } from "@material-ui/icons";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { pageAnimationVariants } from "../services/animations/common";
+import {
+  contactFormAnimationVariants,
+  contactFormInputAnimationVariants,
+  contactFormSubmitButtonAnimationVariants,
+} from "../services/animations/contact";
 import { db } from "../services/firebase";
 import contactStyles from "../styles/pages/Contact.module.css";
 
@@ -36,12 +41,20 @@ const Contact = () => {
       animate="animate"
       exit="exit"
     >
-      <form
+      <motion.form
         onSubmit={(e) => onContactInformationSubmit(e)}
         className={contactStyles.form}
+        variants={contactFormAnimationVariants}
       >
         <input type="text" hidden value="DevOM" readOnly />
-        <div className={contactStyles.inputContainer}>
+        <motion.div
+          className={contactStyles.inputContainer}
+          variants={contactFormInputAnimationVariants}
+          transition={{
+            delay: 1.4,
+            duration: 1.1,
+          }}
+        >
           <label id="name-label" htmlFor="name">
             Name
           </label>
@@ -55,8 +68,15 @@ const Contact = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </div>
-        <div className={contactStyles.inputContainer}>
+        </motion.div>
+        <motion.div
+          className={contactStyles.inputContainer}
+          variants={contactFormInputAnimationVariants}
+          transition={{
+            delay: 1.6,
+            duration: 1.1,
+          }}
+        >
           <label id="email-label" htmlFor="email">
             Email <small>(optional)</small>
           </label>
@@ -70,8 +90,15 @@ const Contact = () => {
             onChange={(e) => setEmail(e.target.value)}
             required={false}
           />
-        </div>
-        <div className={contactStyles.inputContainer}>
+        </motion.div>
+        <motion.div
+          className={contactStyles.inputContainer}
+          variants={contactFormInputAnimationVariants}
+          transition={{
+            delay: 1.8,
+            duration: 1.1,
+          }}
+        >
           <label id="description-label" htmlFor="description">
             Description
           </label>
@@ -83,26 +110,36 @@ const Contact = () => {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-        </div>
+        </motion.div>
         {contacted ? (
-          <div className={contactStyles.doneContainer}>
+          <motion.div
+            className={contactStyles.doneContainer}
+            variants={contactFormSubmitButtonAnimationVariants}
+          >
             <DoneOutlineRounded className={contactStyles.doneIcon} />
             <p>Contacted Successfully</p>
-          </div>
+          </motion.div>
         ) : loading ? (
-          <div className={contactStyles.contactLoader}>
+          <motion.div
+            className={contactStyles.contactLoader}
+            variants={contactFormSubmitButtonAnimationVariants}
+          >
             <SendRounded className={contactStyles.contactLoaderIcons} />
             <SendRounded className={contactStyles.contactLoaderIcons} />
             <SendRounded className={contactStyles.contactLoaderIcons} />
             <SendRounded className={contactStyles.contactLoaderIcons} />
-          </div>
+          </motion.div>
         ) : (
-          <button type="submit" className={contactStyles.submitButton}>
+          <motion.button
+            type="submit"
+            className={contactStyles.submitButton}
+            variants={contactFormSubmitButtonAnimationVariants}
+          >
             <p>Contact</p>
             <SendRounded className={contactStyles.sendIcon} />
-          </button>
+          </motion.button>
         )}
-      </form>
+      </motion.form>
     </motion.div>
   );
 };
