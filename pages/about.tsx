@@ -111,15 +111,6 @@ const skillArray = [
 ];
 
 const About = () => {
-  const animate = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      animate.start("animate");
-    }
-  }, [animate, inView]);
-
   return (
     <motion.div
       className={aboutStyles.about}
@@ -167,11 +158,10 @@ const About = () => {
       </div>
       <main id="main">
         <motion.p
-          ref={ref}
           className={aboutStyles.aboutText}
           variants={aboutTextAnimationVariants}
           initial="initial"
-          animate={animate}
+          animate="animate"
         >
           Firstly, thank you for scrolling down 😉. You are here because you may
           be curious to know who am I or you may have to see what I have written
@@ -202,11 +192,10 @@ const About = () => {
         </div>
         <br />
         <motion.p
-          ref={ref}
           className={aboutStyles.aboutText}
           variants={aboutTextAnimationVariants}
           initial="initial"
-          animate={animate}
+          animate="animate"
         >
           Acting towards a new idea and developing something is one side of a
           coin of my passion but the another side of that coin is very different

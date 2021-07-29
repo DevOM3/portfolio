@@ -31,9 +31,6 @@ export const contactFormSubmitButtonAnimationVariants: Variants = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: {
-      delay: 2.0,
-    },
   },
   exit: {
     opacity: 0,

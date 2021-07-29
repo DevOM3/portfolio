@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import layoutStyles from "../../styles/components/commons/Layout.module.css";
 import AppBar from "./AppBar";
 import Navbar from "./Navbar";
 
 const Layout = ({ children }: any) => {
   const [open, setOpen] = useState(true);
+
+  const updateWindowWidth = (mediaQuery: MediaQueryList) => {
+    if (mediaQuery.matches && open) {
+      setOpen(false);
+    }
+    if (!mediaQuery.matches && !open) {
+      setOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
+    updateWindowWidth(mediaQuery);
+    mediaQuery.addListener(() => updateWindowWidth(mediaQuery));
+  }, []);
 
   return (
     <div className={layoutStyles.layout}>

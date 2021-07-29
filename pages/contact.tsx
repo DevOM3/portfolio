@@ -1,5 +1,6 @@
 import { TextareaAutosize } from "@material-ui/core";
 import { DoneOutlineRounded, SendRounded } from "@material-ui/icons";
+import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { pageAnimationVariants } from "../services/animations/common";
@@ -8,7 +9,6 @@ import {
   contactFormInputAnimationVariants,
   contactFormSubmitButtonAnimationVariants,
 } from "../services/animations/contact";
-import { db } from "../services/firebase";
 import contactStyles from "../styles/pages/Contact.module.css";
 
 const Contact = () => {
@@ -18,19 +18,26 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [contacted, setContacted] = useState(false);
 
-  const onContactInformationSubmit = async (e: any) => {
+  const onContactInformationSubmit = (e: any) => {
     e.preventDefault();
     setLoading(true);
-    await db.collection("Contact").add({
-      name,
-      email,
-      description,
-    });
-    setName("");
-    setEmail("");
-    setDescription("");
-    setLoading(false);
-    setContacted(true);
+    axios
+      .post("/api/contact", {
+        name,
+        email,
+        description,
+      })
+      .then(() => {
+        setName("");
+        setEmail("");
+        setDescription("");
+        setLoading(false);
+        setContacted(true);
+      })
+      .catch(() => {
+        setLoading(false);
+        setContacted(false);
+      });
   };
 
   return (
@@ -115,6 +122,9 @@ const Contact = () => {
           <motion.div
             className={contactStyles.doneContainer}
             variants={contactFormSubmitButtonAnimationVariants}
+            transition={{
+              delay: 0,
+            }}
           >
             <DoneOutlineRounded className={contactStyles.doneIcon} />
             <p>Contacted Successfully</p>
@@ -122,7 +132,12 @@ const Contact = () => {
         ) : loading ? (
           <motion.div
             className={contactStyles.contactLoader}
-            variants={contactFormSubmitButtonAnimationVariants}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
           >
             <SendRounded className={contactStyles.contactLoaderIcons} />
             <SendRounded className={contactStyles.contactLoaderIcons} />
@@ -134,6 +149,9 @@ const Contact = () => {
             type="submit"
             className={contactStyles.submitButton}
             variants={contactFormSubmitButtonAnimationVariants}
+            transition={{
+              delay: 2.0,
+            }}
           >
             <p>Contact</p>
             <SendRounded className={contactStyles.sendIcon} />
