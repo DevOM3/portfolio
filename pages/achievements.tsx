@@ -13,17 +13,61 @@ const Achievements = () => {
       exit="exit"
       className={achievementStyles.achievements}
     >
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
-      <AchievementCard />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
+      <AchievementCard
+        image={"https://picsum.photos/200"}
+        text={"This is testing text"}
+        index={0}
+      />
     </motion.div>
   );
 };
