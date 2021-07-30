@@ -5,7 +5,7 @@ import achievementCardStyles from "../../styles/components/achievements/Achievem
 const AchievementCard = () => {
   return (
     <motion.div className={achievementCardStyles.achievementCard}>
-      <img src="https://picsum.photos/200" alt="" />
+      <img src="https://picsum.photos/200" alt="https://picsum.photos/200" />
     </motion.div>
   );
 };
