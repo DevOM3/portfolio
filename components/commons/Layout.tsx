@@ -9,8 +9,7 @@ const Layout = ({ children }: any) => {
   const updateWindowWidth = (mediaQuery: MediaQueryList) => {
     if (mediaQuery.matches && open) {
       setOpen(false);
-    }
-    if (!mediaQuery.matches && !open) {
+    } else if (!mediaQuery.matches && !open) {
       setOpen(true);
     }
   };
