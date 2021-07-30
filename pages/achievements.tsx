@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import AchievementCard from "../components/achievements/AchievementCard";
 import { pageAnimationVariants } from "../services/animations/common";
 import achievementStyles from "../styles/pages/Achievements.module.css";
 
@@ -11,7 +12,19 @@ const Achievements = () => {
       animate="animate"
       exit="exit"
       className={achievementStyles.achievements}
-    ></motion.div>
+    >
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+      <AchievementCard />
+    </motion.div>
   );
 };
 
