@@ -4,7 +4,7 @@ import adminStyles from "../../styles/pages/admin/Admin.module.css";
 const Admin = () => {
   return (
     <div className={adminStyles.admin}>
-      <p>Admin panel</p>
+      <p>Admin panel...</p>
     </div>
   );
 };
