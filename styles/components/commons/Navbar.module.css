@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   height: 100vh;
+  padding-bottom: 200px;
   background: black;
   flex-direction: column;
   overflow-y: scroll;

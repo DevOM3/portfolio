@@ -27,7 +27,14 @@ const Layout = ({ children }: any) => {
       {router.pathname !== "/admin" && <AppBar open={open} setOpen={setOpen} />}
       <div className={layoutStyles.navigationContainer}>
         {router.pathname !== "/admin" && <Navbar open={open} />}
-        <div className={layoutStyles.main}>{children}</div>
+        <div
+          className={layoutStyles.main}
+          style={{
+            border: router.pathname === "/admin" ? "none" : "4px solid white",
+          }}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );

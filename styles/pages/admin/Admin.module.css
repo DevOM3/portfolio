@@ -1,7 +1,40 @@
 .admin {
-  display: grid;
-  place-items: center;
   height: 100%;
   margin: 0;
   padding: 0;
+  background: #111;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: white;
+  background: #222;
+  height: 100px;
+  width: 150px;
+  border: 1px solid #333;
+  border-radius: 11px;
+  margin: 7px;
+  display: grid;
+  place-items: center;
+  font-size: larger;
 }
