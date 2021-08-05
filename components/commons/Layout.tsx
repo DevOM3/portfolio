@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [mediaQueryMatch, setMediaQueryMatch] = useState(false);
 
   const updateWindowWidth = (mediaQuery: MediaQueryList) => {
@@ -20,7 +20,6 @@ const Layout = ({ children }: any) => {
 
   useEffect(() => {
     const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
-    updateWindowWidth(mediaQuery);
     mediaQuery.addListener(() => updateWindowWidth(mediaQuery));
 
     router.events.on("routeChangeStart", () => setOpen(false));

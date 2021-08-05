@@ -76,7 +76,8 @@
   }
   .links:hover .linkIcons {
     color: grey !important;
-    transition: all 444ms;
+    transition: all 444ms, transform 771ms;
+    transform: rotateY(360deg) scale(0.9);
   }
 }
 
