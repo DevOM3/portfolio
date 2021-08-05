@@ -141,8 +141,7 @@ const About = () => {
             ))}
           </motion.p>
         </div>
-        <motion.a
-          href="#main"
+        <motion.div
           className={aboutStyles.scrollIcon}
           variants={aboutLinkAnimationVariants}
           initial="initial"
@@ -154,7 +153,7 @@ const About = () => {
             <div className={aboutStyles.chevron}></div>
             <span className={aboutStyles.text}>Scroll down to see</span>
           </div>
-        </motion.a>
+        </motion.div>
       </div>
       <main id="main">
         <motion.p
