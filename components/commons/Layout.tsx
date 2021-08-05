@@ -7,8 +7,10 @@ import Navbar from "./Navbar";
 const Layout = ({ children }: any) => {
   const router = useRouter();
   const [open, setOpen] = useState(true);
+  const [mediaQueryMatch, setMediaQueryMatch] = useState(false);
 
   const updateWindowWidth = (mediaQuery: MediaQueryList) => {
+    setMediaQueryMatch(mediaQuery.matches);
     if (mediaQuery.matches && open) {
       setOpen(false);
     } else if (!mediaQuery.matches && !open) {
@@ -20,21 +22,22 @@ const Layout = ({ children }: any) => {
     const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
     updateWindowWidth(mediaQuery);
     mediaQuery.addListener(() => updateWindowWidth(mediaQuery));
+
+    router.events.on("routeChangeStart", () => setOpen(false));
   }, []);
 
   return (
     <div className={layoutStyles.layout}>
       {router.pathname !== "/admin" && <AppBar open={open} setOpen={setOpen} />}
       <div className={layoutStyles.navigationContainer}>
-        {router.pathname !== "/admin" && <Navbar open={open} />}
-        <div
-          className={layoutStyles.main}
-          style={{
-            border: router.pathname === "/admin" ? "none" : "4px solid white",
-          }}
-        >
-          {children}
-        </div>
+        {router.pathname !== "/admin" && (
+          <Navbar
+            open={open}
+            setOpen={setOpen}
+            mediaQueryMatch={mediaQueryMatch}
+          />
+        )}
+        <div className={layoutStyles.main}>{children}</div>
       </div>
     </div>
   );

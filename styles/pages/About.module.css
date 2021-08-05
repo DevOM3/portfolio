@@ -24,7 +24,7 @@
 .parallaxTextContainer {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 71px);
   border-radius: 11px;
   display: grid;
   place-items: center;

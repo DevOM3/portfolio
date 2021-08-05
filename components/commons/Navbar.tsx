@@ -18,33 +18,38 @@ import {
 } from "react-icons/ti";
 import { RiMenuUnfoldLine, RiPagesFill, RiPagesLine } from "react-icons/ri";
 
-const Navbar = ({ open }: any) => {
-  const router = useRouter();
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+interface NavbarProps {
+  open: boolean;
+  setOpen: Function;
+  mediaQueryMatch: boolean;
+}
 
-  const toggleDrawer = () => {
-    if (drawerIsOpen) {
-      document.getElementById("toggle-button")!.style.transform =
-        "rotate(0deg)";
-    } else {
-      document.getElementById("toggle-button")!.style.transform =
-        "rotate(180deg)";
-    }
-    setDrawerIsOpen(!drawerIsOpen);
-  };
+const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
+  const router = useRouter();
+  // const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  // const toggleDrawer = () => {
+  //   if (drawerIsOpen) {
+  //     document.getElementById("toggle-button")!.style.transform =
+  //       "rotate(0deg)";
+  //   } else {
+  //     document.getElementById("toggle-button")!.style.transform =
+  //       "rotate(180deg)";
+  //   }
+  //   setDrawerIsOpen(!drawerIsOpen);
+  // };
 
   return (
     <div
       id="navbar"
       className={navbarStyles.navbar}
       style={{
-        maxWidth: drawerIsOpen ? (open ? 500 : 0) : open ? 69 : 0,
-        borderTopRightRadius: drawerIsOpen ? 4 : 0,
-        borderBottomRightRadius: drawerIsOpen ? 4 : 0,
+        left: mediaQueryMatch ? (open ? 0 : "-100vw") : 0,
+        maxWidth: mediaQueryMatch ? "100%" : open ? 200 : 69,
       }}
     >
       <ul>
-        <li
+        {/* <li
           className={navbarStyles.drawerToggleButton}
           onClick={toggleDrawer}
           style={{
@@ -63,20 +68,33 @@ const Navbar = ({ open }: any) => {
               }}
             />
           </div>
-        </li>
+        </li> */}
         <li>
-          <b
-            style={{ background: router.pathname === "/" ? "white" : "black" }}
-          ></b>
-          <b
-            style={{ background: router.pathname === "/" ? "white" : "black" }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background: router.pathname === "/" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background: router.pathname === "/" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/">
             <a
               className={navbarStyles.links}
               style={{
                 background: router.pathname === "/" ? "white" : "black",
                 color: router.pathname === "/" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius: router.pathname === "/" ? 51 : 11,
                 borderBottomLeftRadius: router.pathname === "/" ? 51 : 11,
               }}
@@ -100,27 +118,39 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;Home
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              Home
             </a>
           </Link>
         </li>
         <li>
-          <b
-            style={{
-              background: router.pathname === "/projects" ? "white" : "black",
-            }}
-          ></b>
-          <b
-            style={{
-              background: router.pathname === "/projects" ? "white" : "black",
-            }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/projects" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/projects" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/projects">
             <a
               className={navbarStyles.links}
               style={{
                 background: router.pathname === "/projects" ? "white" : "black",
                 color: router.pathname === "/projects" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/projects"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius: router.pathname === "/projects" ? 51 : 11,
                 borderBottomLeftRadius:
                   router.pathname === "/projects" ? 51 : 11,
@@ -151,23 +181,28 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;Projects
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              Projects
             </a>
           </Link>
         </li>
         <li>
-          <b
-            style={{
-              background:
-                router.pathname === "/achievements" ? "white" : "black",
-            }}
-          ></b>
-          <b
-            style={{
-              background:
-                router.pathname === "/achievements" ? "white" : "black",
-            }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/achievements" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/achievements" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/achievements">
             <a
               className={navbarStyles.links}
@@ -175,6 +210,11 @@ const Navbar = ({ open }: any) => {
                 background:
                   router.pathname === "/achievements" ? "white" : "black",
                 color: router.pathname === "/achievements" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/achievements"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius:
                   router.pathname === "/achievements" ? 51 : 11,
                 borderBottomLeftRadius:
@@ -206,27 +246,37 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;Achievements
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              Achievements
             </a>
           </Link>
         </li>
         <li>
-          <b
-            style={{
-              background: router.pathname === "/blog" ? "white" : "black",
-            }}
-          ></b>
-          <b
-            style={{
-              background: router.pathname === "/blog" ? "white" : "black",
-            }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background: router.pathname === "/blog" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background: router.pathname === "/blog" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/blog">
             <a
               className={navbarStyles.links}
               style={{
                 background: router.pathname === "/blog" ? "white" : "black",
                 color: router.pathname === "/blog" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/blog"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius: router.pathname === "/blog" ? 51 : 11,
                 borderBottomLeftRadius: router.pathname === "/blog" ? 51 : 11,
               }}
@@ -250,27 +300,39 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;Blog
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              Blog
             </a>
           </Link>
         </li>
         <li>
-          <b
-            style={{
-              background: router.pathname === "/contact" ? "white" : "black",
-            }}
-          ></b>
-          <b
-            style={{
-              background: router.pathname === "/contact" ? "white" : "black",
-            }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/contact" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background:
+                    router.pathname === "/contact" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/contact">
             <a
               className={navbarStyles.links}
               style={{
                 background: router.pathname === "/contact" ? "white" : "black",
                 color: router.pathname === "/contact" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/contact"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius: router.pathname === "/contact" ? 51 : 11,
                 borderBottomLeftRadius:
                   router.pathname === "/contact" ? 51 : 11,
@@ -297,27 +359,37 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;Contact
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              Contact
             </a>
           </Link>
         </li>
         <li>
-          <b
-            style={{
-              background: router.pathname === "/about" ? "white" : "black",
-            }}
-          ></b>
-          <b
-            style={{
-              background: router.pathname === "/about" ? "white" : "black",
-            }}
-          ></b>
+          {!mediaQueryMatch && (
+            <>
+              <b
+                style={{
+                  background: router.pathname === "/about" ? "white" : "black",
+                }}
+              ></b>
+              <b
+                style={{
+                  background: router.pathname === "/about" ? "white" : "black",
+                }}
+              ></b>
+            </>
+          )}
           <Link href="/about">
             <a
               className={navbarStyles.links}
               style={{
                 background: router.pathname === "/about" ? "white" : "black",
                 color: router.pathname === "/about" ? "black" : "white",
+                borderRadius: mediaQueryMatch
+                  ? router.pathname === "/about"
+                    ? 51
+                    : 11
+                  : 0,
                 borderTopLeftRadius: router.pathname === "/about" ? 51 : 11,
                 borderBottomLeftRadius: router.pathname === "/about" ? 51 : 11,
               }}
@@ -341,7 +413,8 @@ const Navbar = ({ open }: any) => {
                   />
                 )}
               </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;About
+              {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              About
             </a>
           </Link>
         </li>

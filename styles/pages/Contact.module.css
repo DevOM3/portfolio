@@ -10,6 +10,9 @@
   padding-bottom: 80px;
   overflow: scroll;
 }
+.contact::-webkit-scrollbar {
+  display: none;
+}
 
 .form {
   display: flex;
