@@ -27,16 +27,40 @@ const Layout = ({ children }: any) => {
 
   return (
     <div className={layoutStyles.layout}>
-      {router.pathname !== "/admin" && <AppBar open={open} setOpen={setOpen} />}
-      <div className={layoutStyles.navigationContainer}>
-        {router.pathname !== "/admin" && (
-          <Navbar
-            open={open}
-            setOpen={setOpen}
-            mediaQueryMatch={mediaQueryMatch}
-          />
+      {router.pathname !== "/admin" &&
+        router.pathname !== "/admin/projects" &&
+        router.pathname !== "/admin/achievements" &&
+        router.pathname !== "/admin/blog" &&
+        router.pathname !== "/admin/contact" && (
+          <AppBar open={open} setOpen={setOpen} />
         )}
-        <div className={layoutStyles.main}>{children}</div>
+      <div className={layoutStyles.navigationContainer}>
+        {router.pathname !== "/admin" &&
+          router.pathname !== "/admin/projects" &&
+          router.pathname !== "/admin/achievements" &&
+          router.pathname !== "/admin/blog" &&
+          router.pathname !== "/admin/contact" && (
+            <Navbar
+              open={open}
+              setOpen={setOpen}
+              mediaQueryMatch={mediaQueryMatch}
+            />
+          )}
+        <div
+          className={layoutStyles.main}
+          style={{
+            border:
+              router.pathname !== "/admin" &&
+              router.pathname !== "/admin/projects" &&
+              router.pathname !== "/admin/achievements" &&
+              router.pathname !== "/admin/blog" &&
+              router.pathname !== "/admin/contact"
+                ? "4ps solid white"
+                : "none",
+          }}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
