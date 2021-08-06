@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   padding-top: 51px;
+  padding-left: 11px;
+  padding-right: 11px;
 }
 
 .form {
@@ -66,6 +68,22 @@
 }
 
 .progress {
+  margin-top: 21px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+  padding-left: 21px;
+  padding-right: 21px;
+  border-radius: 11px;
   margin-top: 21px;
   margin-left: auto;
   margin-right: auto;

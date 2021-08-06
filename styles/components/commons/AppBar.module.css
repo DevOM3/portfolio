@@ -1,5 +1,6 @@
 .appBar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 71px !important;
   background: black;
@@ -7,6 +8,12 @@
   position: sticky;
   top: 0;
   left: 0;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
 }
 
 .logo {

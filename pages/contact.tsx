@@ -31,13 +31,12 @@ const Contact = () => {
         setName("");
         setEmail("");
         setDescription("");
-        setLoading(false);
         setContacted(true);
       })
       .catch(() => {
-        setLoading(false);
         setContacted(false);
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
