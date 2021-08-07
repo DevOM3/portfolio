@@ -20,6 +20,7 @@ const Layout = ({ children }: any) => {
 
   useEffect(() => {
     const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
+    updateWindowWidth(mediaQuery);
     mediaQuery.addListener(() => updateWindowWidth(mediaQuery));
 
     router.events.on("routeChangeStart", () => setOpen(false));
@@ -55,7 +56,7 @@ const Layout = ({ children }: any) => {
               router.pathname !== "/admin/achievements" &&
               router.pathname !== "/admin/blog" &&
               router.pathname !== "/admin/contact"
-                ? "4ps solid white"
+                ? "4px solid white"
                 : "none",
           }}
         >

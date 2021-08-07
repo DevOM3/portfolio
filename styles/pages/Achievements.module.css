@@ -6,6 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 4px;
+  padding-bottom: 51px;
   /* place-items: center; */
   /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
 }

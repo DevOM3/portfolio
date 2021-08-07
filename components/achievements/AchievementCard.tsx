@@ -5,7 +5,6 @@ import achievementCardStyles from "../../styles/components/achievements/Achievem
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
-  CircularProgress,
   Dialog,
   IconButton,
   Toolbar,
@@ -17,6 +16,7 @@ import { Close } from "@material-ui/icons";
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
+    background: "black",
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -73,6 +73,7 @@ const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
           </Toolbar>
         </AppBar>
         <Image
+          draggable={false}
           src={imageURL}
           alt=""
           width={100}
@@ -86,6 +87,7 @@ const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
         onClick={handleClickOpen}
       >
         <Image
+          draggable={false}
           src={imageURL}
           alt={imageURL}
           layout="responsive"

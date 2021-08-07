@@ -105,7 +105,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/" ? "#F7444E" : "white",
+                      color: router.pathname === "/" ? "#F7444E" : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -113,7 +113,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/" ? "#F7444E" : "white",
+                      color: router.pathname === "/" ? "#F7444E" : "whitesmoke",
                     }}
                   />
                 )}
@@ -165,7 +165,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                       color:
                         router.pathname === "/projects"
                           ? "rgb(34, 160, 234)"
-                          : "white",
+                          : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -176,7 +176,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                       color:
                         router.pathname === "/projects"
                           ? "rgb(34, 160, 234)"
-                          : "white",
+                          : "whitesmoke",
                     }}
                   />
                 )}
@@ -230,7 +230,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                       color:
                         router.pathname === "/achievements"
                           ? "orange"
-                          : "white",
+                          : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -241,7 +241,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                       color:
                         router.pathname === "/achievements"
                           ? "orange"
-                          : "white",
+                          : "whitesmoke",
                     }}
                   />
                 )}
@@ -287,7 +287,8 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/blog" ? "purple" : "white",
+                      color:
+                        router.pathname === "/blog" ? "purple" : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -295,7 +296,8 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/blog" ? "purple" : "white",
+                      color:
+                        router.pathname === "/blog" ? "purple" : "whitesmoke",
                     }}
                   />
                 )}
@@ -345,7 +347,9 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     className={navbarStyles.linkIcons}
                     style={{
                       color:
-                        router.pathname === "/contact" ? "#26D9CA" : "white",
+                        router.pathname === "/contact"
+                          ? "#26D9CA"
+                          : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -354,7 +358,9 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     className={navbarStyles.linkIcons}
                     style={{
                       color:
-                        router.pathname === "/contact" ? "#26D9CA" : "white",
+                        router.pathname === "/contact"
+                          ? "#26D9CA"
+                          : "whitesmoke",
                     }}
                   />
                 )}
@@ -400,7 +406,8 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/about" ? "#3F66DA" : "white",
+                      color:
+                        router.pathname === "/about" ? "#3F66DA" : "whitesmoke",
                     }}
                   />
                 ) : (
@@ -408,7 +415,8 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                     fontSize={30}
                     className={navbarStyles.linkIcons}
                     style={{
-                      color: router.pathname === "/about" ? "#3F66DA" : "white",
+                      color:
+                        router.pathname === "/about" ? "#3F66DA" : "whitesmoke",
                     }}
                   />
                 )}
