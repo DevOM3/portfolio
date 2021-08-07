@@ -18,12 +18,40 @@ const Layout = ({ children }: any) => {
     }
   };
 
+  const isAdmin = () =>
+    prompt(
+      "Developer actions are locked, enter a password to unlock and proceed 😄"
+    ) === "Bhargavi@2012";
+
+  const protectConsoleAndCode = () => {
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
+    document.onkeydown = (e) => {
+      if (e.keyCode == 123) {
+        return isAdmin();
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+        return isAdmin();
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+        return isAdmin();
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+        return isAdmin();
+      }
+      if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+        return isAdmin();
+      }
+    };
+  };
+
   useEffect(() => {
     const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
     updateWindowWidth(mediaQuery);
     mediaQuery.addListener(() => updateWindowWidth(mediaQuery));
 
     router.events.on("routeChangeStart", () => setOpen(false));
+
+    protectConsoleAndCode();
   }, []);
 
   return (

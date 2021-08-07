@@ -14,7 +14,9 @@ const AppBar = ({ open, setOpen }: AppBarProps) => {
   const router = useRouter();
 
   const gotoAdminPanel = () => {
-    const promptAnswer = prompt("Enter a password for Admin Panel");
+    const promptAnswer = prompt(
+      "Are you Admin of this web application? \nEnter a password to proceed with Admin Panel 😬."
+    );
     if (promptAnswer === "Bhargavi@2012") {
       router.replace("/admin");
     } else {

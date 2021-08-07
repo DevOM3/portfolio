@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React, { forwardRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { forwardRef, useEffect, useState } from "react";
 import Image from "next/image";
 import achievementCardStyles from "../../styles/components/achievements/AchievementCard.module.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,6 +12,8 @@ import {
 } from "@material-ui/core";
 import Slide, { SlideProps } from "@material-ui/core/Slide";
 import { Close } from "@material-ui/icons";
+import { useInView } from "react-intersection-observer";
+import { achievementCardAnimationVariants } from "../../services/animations/achievements";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -40,6 +42,14 @@ type AchievementCardProps = {
 const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const animate = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      animate.start("animate");
+    }
+  }, [animate, inView]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -83,8 +93,12 @@ const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
         />
       </Dialog>
       <motion.div
+        ref={ref}
         className={achievementCardStyles.achievementCard}
         onClick={handleClickOpen}
+        variants={achievementCardAnimationVariants}
+        initial="initial"
+        animate="animate"
       >
         <Image
           draggable={false}
