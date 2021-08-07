@@ -53,7 +53,6 @@ const ExistingAchievements = ({
               .doc(id)
               .delete()
               .then(() => {
-                setLoading(false);
                 getExistingAchievements();
               })
           );

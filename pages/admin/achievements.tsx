@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import React, { FormEvent, useEffect, useState } from "react";
 import ExistingAchievements from "../../components/admin/ExistingAchievements";
@@ -14,14 +15,17 @@ const Achievements = () => {
   const [image, setImage] = useState<File | null>(null);
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingAchievements, setLoadingAchievements] = useState(true);
   const [existingAchievements, setExistingAchievements] = useState<
     AchievementsInterface[]
   >([]);
 
   const getExistingAchievements = () => {
-    axios
-      .get("/api/achievements")
-      .then((response) => setExistingAchievements(response.data));
+    !loadingAchievements && setLoadingAchievements(true);
+    axios.get("/api/achievements").then((response) => {
+      setExistingAchievements(response.data);
+      setLoadingAchievements(false);
+    });
   };
 
   useEffect(() => {
@@ -89,15 +93,19 @@ const Achievements = () => {
         )}
       </form>
       <div className={adminAchievementStyles.container}>
-        {existingAchievements.map((existingAchievement) => (
-          <ExistingAchievements
-            key={existingAchievement?.id}
-            id={existingAchievement?.id}
-            imageURL={existingAchievement?.imageURL}
-            title={existingAchievement?.title}
-            getExistingAchievements={getExistingAchievements}
-          />
-        ))}
+        {loadingAchievements ? (
+          <CircularProgress />
+        ) : (
+          existingAchievements.map((existingAchievement) => (
+            <ExistingAchievements
+              key={existingAchievement?.id}
+              id={existingAchievement?.id}
+              imageURL={existingAchievement?.imageURL}
+              title={existingAchievement?.title}
+              getExistingAchievements={getExistingAchievements}
+            />
+          ))
+        )}
       </div>
     </div>
   );

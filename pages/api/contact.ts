@@ -18,6 +18,17 @@ export default async function handler(
       response.status(403).json({ response: error });
     }
   } else {
-    response.status(200).json({ Developer: "Om Londhe" });
+    try {
+      const contactSnapshot = await db.collection("Contact").get();
+      const contactsArray = contactSnapshot.docs.map((contact) => ({
+        id: contact?.id,
+        name: contact?.data().name,
+        email: contact?.data().email,
+        description: contact?.data().description,
+      }));
+      response.status(200).json(contactsArray);
+    } catch (error) {
+      response.status(403).json({ response: error });
+    }
   }
 }
