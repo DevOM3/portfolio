@@ -2,6 +2,7 @@ import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { AiOutlineTrophy } from "react-icons/ai";
 import AchievementCard from "../components/achievements/AchievementCard";
 import { pageAnimationVariants } from "../services/animations/common";
 import achievementStyles from "../styles/pages/Achievements.module.css";
@@ -36,7 +37,11 @@ const Achievements = () => {
       style={{ height: loading ? "100%" : "auto" }}
     >
       {loading ? (
-        <CircularProgress />
+        <div className={achievementStyles.loader}>
+          <AiOutlineTrophy className={achievementStyles.icon} fontSize={21} />
+          <AiOutlineTrophy className={achievementStyles.icon} fontSize={21} />
+          <AiOutlineTrophy className={achievementStyles.icon} fontSize={21} />
+        </div>
       ) : (
         achievements.map((achievement) => (
           <AchievementCard

@@ -19,3 +19,36 @@
     padding: 4px;
   }
 }
+
+.loader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 71px;
+  width: 71px;
+}
+
+.icon {
+  color: gold;
+  animation: iconAnimation 1.7s ease-in-out infinite;
+}
+
+.icon:first-child {
+  animation-delay: 0.3s;
+}
+.icon:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.icon:last-child {
+  animation-delay: 0.9s;
+}
+
+@keyframes iconAnimation {
+  0%,
+  100% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
