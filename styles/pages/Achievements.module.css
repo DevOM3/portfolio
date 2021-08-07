@@ -1,5 +1,4 @@
 .achievements {
-  min-height: 100%;
   overflow: scroll;
   padding-bottom: 100px;
   display: flex;

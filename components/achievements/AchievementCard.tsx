@@ -5,13 +5,13 @@ import achievementCardStyles from "../../styles/components/achievements/Achievem
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
+  CircularProgress,
   Dialog,
   IconButton,
   Toolbar,
   Typography,
 } from "@material-ui/core";
-
-import Slide from "@material-ui/core/Slide";
+import Slide, { SlideProps } from "@material-ui/core/Slide";
 import { Close } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Transition = forwardRef(function Transition(props, ref) {
+const Transition = forwardRef<unknown, SlideProps>(function Transition(
+  props,
+  ref
+) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 

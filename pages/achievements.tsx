@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -12,11 +13,13 @@ interface AchievementsInterface {
 
 const Achievements = () => {
   const [achievements, setAchievements] = useState<AchievementsInterface[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const getExistingAchievements = () => {
-    axios
-      .get("/api/achievements")
-      .then((response) => setAchievements(response.data));
+    axios.get("/api/achievements").then((response) => {
+      setAchievements(response.data);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -30,15 +33,20 @@ const Achievements = () => {
       animate="animate"
       exit="exit"
       className={achievementStyles.achievements}
+      style={{ height: loading ? "100%" : "auto" }}
     >
-      {achievements.map((achievement) => (
-        <AchievementCard
-          key={achievement.id}
-          id={achievement.id}
-          imageURL={achievement.imageURL}
-          text={achievement.title}
-        />
-      ))}
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        achievements.map((achievement) => (
+          <AchievementCard
+            key={achievement.id}
+            id={achievement.id}
+            imageURL={achievement.imageURL}
+            text={achievement.title}
+          />
+        ))
+      )}
     </motion.div>
   );
 };
