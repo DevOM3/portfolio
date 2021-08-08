@@ -1,0 +1,9 @@
+.projects {
+  height: calc(100% - 71px);
+  overflow: scroll;
+  gap: 7px;
+}
+
+.projects::-webkit-scrollbar {
+  display: none;
+}

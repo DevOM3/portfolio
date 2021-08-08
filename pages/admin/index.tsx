@@ -7,9 +7,6 @@ const Admin = () => {
     <div className={adminStyles.admin}>
       <p className={adminStyles.title}>What do you wanna explore?</p>
       <div className={adminStyles.links}>
-        <Link href="/admin/projects">
-          <a className={adminStyles.link}>Projects</a>
-        </Link>
         <Link href="/admin/achievements">
           <a className={adminStyles.link}>Achievements</a>
         </Link>
@@ -18,6 +15,9 @@ const Admin = () => {
         </Link>
         <Link href="/admin/contact">
           <a className={adminStyles.link}>Contact</a>
+        </Link>
+        <Link href="/admin/projects">
+          <a className={adminStyles.link}>Projects</a>
         </Link>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db, storage } from "../../services/firebase";
+import { db } from "../../services/firebase";
 
 interface AchievementsType {
   imageURL: string;

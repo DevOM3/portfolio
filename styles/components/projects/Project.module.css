@@ -1,0 +1,48 @@
+.project {
+  width: 250px;
+  min-height: 300px;
+  padding: 7px;
+  background: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  max-height: 500px;
+}
+
+.imageDiv {
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px;
+  background: rgba(251, 251, 251, 1);
+  border: 1px solid lightgrey;
+  border-radius: 11px;
+  margin-bottom: 7px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: contain !important;
+  border-radius: 11px !important;
+}
+
+.title,
+.description {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 18px;
+  letter-spacing: 0.7px;
+  margin-bottom: 4px;
+  color: black;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #333;
+}

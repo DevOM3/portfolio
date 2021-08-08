@@ -51,7 +51,7 @@ const Layout = ({ children }: any) => {
 
     router.events.on("routeChangeStart", () => setOpen(false));
 
-    protectConsoleAndCode();
+    // protectConsoleAndCode();
   }, []);
 
   return (
