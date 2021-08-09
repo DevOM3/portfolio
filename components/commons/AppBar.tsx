@@ -1,9 +1,16 @@
 import { IconButton } from "@material-ui/core";
-import { ArrowBackIosRounded, ArrowForwardIos } from "@material-ui/icons";
+import {
+  ArrowBackIosRounded,
+  ArrowForwardIos,
+  Brightness4Rounded,
+  Brightness7Rounded,
+} from "@material-ui/icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import { RiMenuFoldLine, RiMenuUnfoldLine, RiAdminLine } from "react-icons/ri";
 import appBarStyles from "../../styles/components/commons/AppBar.module.css";
+import { useStateValue } from "../../context/StateProvider";
+import { actionTypes } from "../../context/reducer";
 
 interface AppBarProps {
   open: boolean;
@@ -12,6 +19,7 @@ interface AppBarProps {
 
 const AppBar = ({ open, setOpen }: AppBarProps) => {
   const router = useRouter();
+  const [{ mode }, dispatch] = useStateValue();
 
   const gotoAdminPanel = () => {
     const promptAnswer = prompt(
@@ -24,6 +32,15 @@ const AppBar = ({ open, setOpen }: AppBarProps) => {
     }
   };
 
+  const changeMode = () => {
+    const newMode = mode === "light" ? "dark" : "light";
+    dispatch({
+      type: actionTypes.SET_MODE,
+      mode: newMode,
+    });
+    localStorage.setItem("mode", newMode);
+  };
+
   return (
     <div className={appBarStyles.appBar}>
       <section className={appBarStyles.left}>
@@ -33,6 +50,9 @@ const AppBar = ({ open, setOpen }: AppBarProps) => {
         <p className={appBarStyles.logo}>DevOM</p>
       </section>
       <section className={appBarStyles.right}>
+        <IconButton style={{ color: "white" }} onClick={changeMode}>
+          {mode === "dark" ? <Brightness4Rounded /> : <Brightness7Rounded />}
+        </IconButton>
         <IconButton style={{ color: "white" }} onClick={gotoAdminPanel}>
           <RiAdminLine />
         </IconButton>

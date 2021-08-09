@@ -14,6 +14,7 @@ import Slide, { SlideProps } from "@material-ui/core/Slide";
 import { Close } from "@material-ui/icons";
 import { useInView } from "react-intersection-observer";
 import { achievementCardAnimationVariants } from "../../services/animations/achievements";
+import { useStateValue } from "../../context/StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -50,6 +51,7 @@ const AchievementCard = ({
   const [open, setOpen] = useState(false);
   const animate = useAnimation();
   const [ref, inView] = useInView();
+  const [{ mode }] = useStateValue();
 
   useEffect(() => {
     if (inView) {
@@ -108,6 +110,9 @@ const AchievementCard = ({
         transition={{
           duration: 1.21,
           delay: index / 10,
+        }}
+        style={{
+          background: mode === "dark" ? "#222" : "#eee",
         }}
       >
         <Image

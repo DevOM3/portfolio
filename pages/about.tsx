@@ -2,6 +2,7 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import SkillCard from "../components/about/SkillCard";
+import { useStateValue } from "../context/StateProvider";
 import {
   aboutBottomParallaxTextAnimationVariants,
   aboutLinkAnimationVariants,
@@ -15,6 +16,7 @@ import aboutStyles from "../styles/pages/About.module.css";
 const ParallaxBottom = () => {
   const animate = useAnimation();
   const [ref, inView] = useInView();
+  const [{ mode }] = useStateValue();
 
   useEffect(() => {
     if (inView) {
@@ -23,7 +25,12 @@ const ParallaxBottom = () => {
   }, [animate, inView]);
 
   return (
-    <div className={aboutStyles.bottomParallax}>
+    <div
+      className={aboutStyles.bottomParallax}
+      style={{
+        filter: mode === "dark" ? "grayscale(71%)" : "none",
+      }}
+    >
       <motion.p
         className={aboutStyles.bottomParallaxText}
         ref={ref}
@@ -111,6 +118,8 @@ const skillArray = [
 ];
 
 const About = () => {
+  const [{ mode }] = useStateValue();
+
   return (
     <motion.div
       className={aboutStyles.about}
@@ -118,6 +127,7 @@ const About = () => {
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{ background: mode === "dark" ? "#111" : "#fff" }}
     >
       <div className={aboutStyles.parallax}>
         <div className={aboutStyles.parallaxTextContainer}>
@@ -161,6 +171,10 @@ const About = () => {
           variants={aboutTextAnimationVariants}
           initial="initial"
           animate="animate"
+          style={{
+            background: mode === "dark" ? "#111" : "#fff",
+            color: mode === "dark" ? "#fff" : "#111",
+          }}
         >
           Firstly, thank you for scrolling down 😉. You are here because you may
           be curious to know who am I or you may have to see what I have written
@@ -195,6 +209,10 @@ const About = () => {
           variants={aboutTextAnimationVariants}
           initial="initial"
           animate="animate"
+          style={{
+            background: mode === "dark" ? "#111" : "#fff",
+            color: mode === "dark" ? "#fff" : "#111",
+          }}
         >
           Acting towards a new idea and developing something is one side of a
           coin of my passion but the another side of that coin is very different

@@ -136,6 +136,8 @@
 }
 
 .aboutText {
+  font-weight: 600;
+  letter-spacing: 0.7px;
   padding-left: 21px;
   padding-right: 21px;
   padding-top: 4px;

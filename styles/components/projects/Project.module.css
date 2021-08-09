@@ -4,8 +4,7 @@
   min-height: 300px;
   height: max-content;
   padding: 7px;
-  background: #fff;
-  border: 1px solid lightgrey;
+  border: 1px solid;
   border-radius: 11px;
   display: flex;
   flex-direction: column;
@@ -16,8 +15,7 @@
   height: 200px;
   max-height: 200px;
   min-height: 200px;
-  background: rgba(251, 251, 251, 1);
-  border: 1px solid lightgrey;
+  border: 1px solid;
   border-radius: 11px;
   margin-bottom: 7px;
   overflow: hidden;

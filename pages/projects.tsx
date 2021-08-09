@@ -6,6 +6,7 @@ import Project from "../components/projects/Project";
 import { pageAnimationVariants } from "../services/animations/common";
 import projectStyles from "../styles/pages/Projects.module.css";
 import { GetStaticProps, GetStaticPropsContext } from "next";
+import { useStateValue } from "../context/StateProvider";
 
 interface ProjectsInterface {
   projects: Array<{
@@ -32,6 +33,8 @@ export const getStaticProps: GetStaticProps = async (
 };
 
 const Projects = ({ projects }: ProjectsInterface) => {
+  const [{ mode }] = useStateValue();
+
   return (
     <motion.div
       className={projectStyles.projects}
@@ -39,6 +42,9 @@ const Projects = ({ projects }: ProjectsInterface) => {
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{
+        background: mode === "dark" ? "#111" : "white",
+      }}
     >
       {projects.map((project, index) => (
         <Project

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import React from "react";
 import AchievementCard from "../components/achievements/AchievementCard";
+import { useStateValue } from "../context/StateProvider";
 import { pageAnimationVariants } from "../services/animations/common";
 import achievementStyles from "../styles/pages/Achievements.module.css";
 interface AchievementsInterface {
@@ -25,6 +26,8 @@ export const getStaticProps: GetStaticProps = async (
 };
 
 const Achievements = ({ achievements }: AchievementsInterface) => {
+  const [{ mode }] = useStateValue();
+
   return (
     <motion.div
       variants={pageAnimationVariants}
@@ -32,6 +35,9 @@ const Achievements = ({ achievements }: AchievementsInterface) => {
       animate="animate"
       exit="exit"
       className={achievementStyles.achievements}
+      style={{
+        background: mode === "dark" ? "#111" : "#fff",
+      }}
     >
       {achievements.map((achievement, index) => (
         <AchievementCard

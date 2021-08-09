@@ -1,5 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useEffect, useState } from "react";
+import { actionTypes } from "../../context/reducer";
+import { useStateValue } from "../../context/StateProvider";
 import layoutStyles from "../../styles/components/commons/Layout.module.css";
 import AppBar from "./AppBar";
 import Navbar from "./Navbar";
@@ -8,6 +10,7 @@ const Layout = ({ children }: any) => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [mediaQueryMatch, setMediaQueryMatch] = useState(false);
+  const [{ mode }, dispatch] = useStateValue();
 
   const updateWindowWidth = (mediaQuery: MediaQueryList) => {
     setMediaQueryMatch(mediaQuery.matches);
@@ -44,6 +47,13 @@ const Layout = ({ children }: any) => {
     };
   };
 
+  const updateMode = () => {
+    dispatch({
+      type: actionTypes.SET_MODE,
+      mode: localStorage.getItem("mode"),
+    });
+  };
+
   useEffect(() => {
     const mediaQuery: MediaQueryList = window.matchMedia("(max-width: 550px)");
     updateWindowWidth(mediaQuery);
@@ -51,6 +61,7 @@ const Layout = ({ children }: any) => {
 
     router.events.on("routeChangeStart", () => setOpen(false));
 
+    updateMode();
     // protectConsoleAndCode();
   }, []);
 

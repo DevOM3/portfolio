@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { useStateValue } from "../../context/StateProvider";
 import { aboutSkillCardAnimationVariants } from "../../services/animations/about";
 import skillCardStyles from "../../styles/components/about/SkillCard.module.css";
 
@@ -13,6 +14,7 @@ interface SkillCardProps {
 const SkillCard = ({ text, link, animationDelay }: SkillCardProps) => {
   const animate = useAnimation();
   const [ref, inView] = useInView();
+  const [{ mode }] = useStateValue();
 
   useEffect(() => {
     if (inView) {
@@ -32,6 +34,9 @@ const SkillCard = ({ text, link, animationDelay }: SkillCardProps) => {
       animate={animate}
       style={{
         animationDelay: `${animationDelay}s`,
+        border:
+          mode === "dark" ? "2.4px solid whitesmoke" : "2.4px solid black",
+        color: mode === "dark" ? "black" : "white",
       }}
       transition={{
         delay: animationDelay,

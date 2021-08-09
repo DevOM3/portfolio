@@ -26,18 +26,6 @@ interface NavbarProps {
 
 const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
   const router = useRouter();
-  // const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-
-  // const toggleDrawer = () => {
-  //   if (drawerIsOpen) {
-  //     document.getElementById("toggle-button")!.style.transform =
-  //       "rotate(0deg)";
-  //   } else {
-  //     document.getElementById("toggle-button")!.style.transform =
-  //       "rotate(180deg)";
-  //   }
-  //   setDrawerIsOpen(!drawerIsOpen);
-  // };
 
   return (
     <div
@@ -49,26 +37,6 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
       }}
     >
       <ul>
-        {/* <li
-          className={navbarStyles.drawerToggleButton}
-          onClick={toggleDrawer}
-          style={{
-            background: drawerIsOpen ? "red" : "transparent",
-            maxWidth: drawerIsOpen ? 100 : 500,
-            borderTopRightRadius: drawerIsOpen ? 51 : 0,
-            borderBottomRightRadius: drawerIsOpen ? 51 : 0,
-          }}
-        >
-          <div className={navbarStyles.icon}>
-            <RiMenuUnfoldLine
-              fontSize={30}
-              id="toggle-button"
-              style={{
-                transition: "transform 444ms",
-              }}
-            />
-          </div>
-        </li> */}
         <li>
           {!mediaQueryMatch && (
             <>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import projectStyles from "../../styles/components/projects/Project.module.css";
 import { motion } from "framer-motion";
 import { achievementCardAnimationVariants } from "../../services/animations/achievements";
+import { useStateValue } from "../../context/StateProvider";
 
 interface ProjectInterface {
   imageURL: string;
@@ -20,6 +21,8 @@ const Project = ({
   link,
   index,
 }: ProjectInterface) => {
+  const [{ mode }] = useStateValue();
+
   return (
     <Link href={link}>
       <motion.a
@@ -33,8 +36,18 @@ const Project = ({
         }}
         href={link}
         target="_blank"
+        style={{
+          background: mode === "dark" ? "#222" : "#fff",
+          borderColor: mode === "dark" ? "#333" : "#eee",
+        }}
       >
-        <div className={projectStyles.imageDiv}>
+        <div
+          className={projectStyles.imageDiv}
+          style={{
+            background: mode === "dark" ? "#333" : "#eee",
+            borderColor: mode === "dark" ? "#444" : "#ddd",
+          }}
+        >
           <Image
             draggable={false}
             src={imageURL}
@@ -45,8 +58,18 @@ const Project = ({
             className={projectStyles.image}
           />
         </div>
-        <p className={projectStyles.title}>{title}</p>
-        <p className={projectStyles.description}>{description}</p>
+        <p
+          className={projectStyles.title}
+          style={{ color: mode === "dark" ? "white" : "black" }}
+        >
+          {title}
+        </p>
+        <p
+          className={projectStyles.description}
+          style={{ color: mode === "dark" ? "whitesmoke" : "#333" }}
+        >
+          {description}
+        </p>
       </motion.a>
     </Link>
   );

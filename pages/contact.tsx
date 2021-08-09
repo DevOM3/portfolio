@@ -3,6 +3,7 @@ import { DoneOutlineRounded, SendRounded } from "@material-ui/icons";
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useStateValue } from "../context/StateProvider";
 import { pageAnimationVariants } from "../services/animations/common";
 import {
   contactFormAnimationVariants,
@@ -17,6 +18,7 @@ const Contact = () => {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [contacted, setContacted] = useState(false);
+  const [{ mode }] = useStateValue();
 
   const onContactInformationSubmit = (e: any) => {
     e.preventDefault();
@@ -46,22 +48,40 @@ const Contact = () => {
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{
+        backgroundColor: mode === "dark" ? "#111" : "white",
+      }}
     >
       <motion.form
         onSubmit={(e) => onContactInformationSubmit(e)}
         className={contactStyles.form}
         variants={contactFormAnimationVariants}
+        style={{
+          background:
+            mode === "dark"
+              ? "rgba(0, 0, 0, 0.24)"
+              : "rgba(255, 255, 255, 0.24)",
+        }}
       >
         <input type="text" hidden value="DevOM" readOnly />
         <motion.div
           className={contactStyles.inputContainer}
           variants={contactFormInputAnimationVariants}
+          style={{
+            background: mode === "dark" ? "#111" : "white",
+          }}
           transition={{
             delay: 1.4,
             duration: 1.1,
           }}
         >
-          <label id="name-label" htmlFor="name">
+          <label
+            style={{
+              color: "grey",
+            }}
+            id="name-label"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -73,17 +93,30 @@ const Contact = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            style={{
+              color: mode === "dark" ? "white" : "#111",
+              background: mode === "dark" ? "#111" : "white",
+            }}
           />
         </motion.div>
         <motion.div
           className={contactStyles.inputContainer}
           variants={contactFormInputAnimationVariants}
+          style={{
+            background: mode === "dark" ? "#111" : "white",
+          }}
           transition={{
             delay: 1.6,
             duration: 1.1,
           }}
         >
-          <label id="email-label" htmlFor="email">
+          <label
+            style={{
+              color: "grey",
+            }}
+            id="email-label"
+            htmlFor="email"
+          >
             Email <small>(optional)</small>
           </label>
           <input
@@ -95,17 +128,30 @@ const Contact = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required={false}
+            style={{
+              color: mode === "dark" ? "white" : "#111",
+              background: mode === "dark" ? "#111" : "white",
+            }}
           />
         </motion.div>
         <motion.div
           className={contactStyles.inputContainer}
           variants={contactFormInputAnimationVariants}
+          style={{
+            background: mode === "dark" ? "#111" : "white",
+          }}
           transition={{
             delay: 1.8,
             duration: 1.1,
           }}
         >
-          <label id="description-label" htmlFor="description">
+          <label
+            style={{
+              color: "grey",
+            }}
+            id="description-label"
+            htmlFor="description"
+          >
             Description
           </label>
           <TextareaAutosize
@@ -115,6 +161,10 @@ const Contact = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
+            style={{
+              color: mode === "dark" ? "white" : "#111",
+              background: mode === "dark" ? "#111" : "white",
+            }}
           />
         </motion.div>
         {contacted ? (
