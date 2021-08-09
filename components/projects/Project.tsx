@@ -31,6 +31,8 @@ const Project = ({
           duration: 1.21,
           delay: index / 10,
         }}
+        href={link}
+        target="_blank"
       >
         <div className={projectStyles.imageDiv}>
           <Image
