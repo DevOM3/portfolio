@@ -37,9 +37,15 @@ type AchievementCardProps = {
   id: string;
   imageURL: string;
   text: string;
+  index: number;
 };
 
-const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
+const AchievementCard = ({
+  id,
+  imageURL,
+  text,
+  index,
+}: AchievementCardProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const animate = useAnimation();
@@ -99,6 +105,10 @@ const AchievementCard = ({ id, imageURL, text }: AchievementCardProps) => {
         variants={achievementCardAnimationVariants}
         initial="initial"
         animate="animate"
+        transition={{
+          duration: 1.21,
+          delay: index / 10,
+        }}
       >
         <Image
           draggable={false}

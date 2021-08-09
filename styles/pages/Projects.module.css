@@ -2,6 +2,12 @@
   height: calc(100% - 71px);
   overflow: scroll;
   gap: 7px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .projects::-webkit-scrollbar {

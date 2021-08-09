@@ -6,8 +6,5 @@ export const achievementCardAnimationVariants: Variants = {
   },
   animate: {
     opacity: 1,
-    transition: {
-      duration: 1.21,
-    },
   },
 };

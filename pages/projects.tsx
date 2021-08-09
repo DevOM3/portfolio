@@ -1,43 +1,53 @@
 import axios from "axios";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Project from "../components/projects/Project";
+import { pageAnimationVariants } from "../services/animations/common";
 import projectStyles from "../styles/pages/Projects.module.css";
+import { GetStaticProps, GetStaticPropsContext } from "next";
 
 interface ProjectsInterface {
-  id: string;
-  imageURL: string;
-  title: string;
-  description: string;
-  link: string;
+  projects: Array<{
+    id: string;
+    imageURL: string;
+    title: string;
+    description: string;
+    link: string;
+  }>;
 }
 
-const projects = () => {
-  const [projects, setProjects] = useState<ProjectsInterface[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const getExistingProjects = () => {
-    axios.get("/api/projects").then((response) => {
-      setProjects(response.data);
-      setLoading(false);
-    });
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const projects = (await axios.get("/api/projects")).data;
+  return {
+    props: {
+      projects,
+    },
   };
+};
 
-  useEffect(() => {
-    getExistingProjects();
-  }, []);
-
+const projects = ({ projects }: ProjectsInterface) => {
   return (
-    <div className={projectStyles.projects}>
-      {projects.map((project) => (
+    <motion.div
+      className={projectStyles.projects}
+      variants={pageAnimationVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      {projects.map((project, index) => (
         <Project
           key={project?.id}
           link={project?.link}
           imageURL={project?.imageURL}
           title={project?.title}
           description={project?.description}
+          index={index}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
