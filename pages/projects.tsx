@@ -20,10 +20,13 @@ interface ProjectsInterface {
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
-  const projects = (await axios.get("/api/projects")).data;
+  const projects = (
+    await axios.get("https://devom-portfolio.vercel.app/api/projects")
+  ).data;
   return {
     props: {
       projects,
+      revalidate: true,
     },
   };
 };

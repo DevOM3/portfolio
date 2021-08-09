@@ -1,9 +1,7 @@
-import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { GetStaticProps, GetStaticPropsContext } from "next";
-import React, { useEffect, useState } from "react";
-import { AiOutlineTrophy } from "react-icons/ai";
+import React from "react";
 import AchievementCard from "../components/achievements/AchievementCard";
 import { pageAnimationVariants } from "../services/animations/common";
 import achievementStyles from "../styles/pages/Achievements.module.css";
@@ -14,10 +12,13 @@ interface AchievementsInterface {
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
-  const achievements = (await axios.get("/api/achievements")).data;
+  const achievements = (
+    await axios.get(`https://devom-portfolio.vercel.app/api/achievements`)
+  ).data;
   return {
     props: {
       achievements,
+      revalidate: true,
     },
   };
 };
