@@ -40,7 +40,7 @@ const Projects = ({ projects }: ProjectsInterface) => {
       animate="animate"
       exit="exit"
     >
-      {projects.map((project, index) => (
+      {/* {projects.map((project, index) => (
         <Project
           key={project?.id}
           link={project?.link}
@@ -49,7 +49,7 @@ const Projects = ({ projects }: ProjectsInterface) => {
           description={project?.description}
           index={index}
         />
-      ))}
+      ))} */}
     </motion.div>
   );
 };
