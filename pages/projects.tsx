@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (
   };
 };
 
-const projects = ({ projects }: ProjectsInterface) => {
+const Projects = ({ projects }: ProjectsInterface) => {
   return (
     <motion.div
       className={projectStyles.projects}
@@ -51,4 +51,4 @@ const projects = ({ projects }: ProjectsInterface) => {
   );
 };
 
-export default projects;
+export default Projects;
