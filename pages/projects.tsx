@@ -17,19 +17,19 @@ interface ProjectsInterface {
   }>;
 }
 
-// export const getStaticProps: GetStaticProps = async (
-//   context: GetStaticPropsContext
-// ) => {
-//   const projects = (
-//     await axios.get("https://devom-portfolio.vercel.app/api/projects")
-//   ).data;
-//   return {
-//     props: {
-//       projects,
-//       revalidate: true,
-//     },
-//   };
-// };
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
+  const projects = (
+    await axios.get("https://devom-portfolio.vercel.app/api/projects")
+  ).data;
+  return {
+    props: {
+      projects,
+      revalidate: true,
+    },
+  };
+};
 
 const Projects = ({ projects }: ProjectsInterface) => {
   return (
@@ -40,7 +40,7 @@ const Projects = ({ projects }: ProjectsInterface) => {
       animate="animate"
       exit="exit"
     >
-      {/* {projects.map((project, index) => (
+      {projects.map((project, index) => (
         <Project
           key={project?.id}
           link={project?.link}
@@ -49,7 +49,7 @@ const Projects = ({ projects }: ProjectsInterface) => {
           description={project?.description}
           index={index}
         />
-      ))} */}
+      ))}
     </motion.div>
   );
 };
