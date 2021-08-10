@@ -21,6 +21,7 @@
     "react-intersection-observer": "^8.32.0"
   },
   "devDependencies": {
+    "@types/gsap": "^3.0.0",
     "@types/react": "17.0.14",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",

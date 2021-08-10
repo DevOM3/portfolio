@@ -16,7 +16,7 @@ export const aboutParallaxTextAnimationVariants: Variants = {
 export const aboutParallaxTextLetterAnimationVariants: Variants = {
   initial: {
     opacity: 0,
-    y: 50,
+    y: 21,
   },
   animate: {
     opacity: 1,

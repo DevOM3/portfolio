@@ -47,7 +47,7 @@ const AppBar = ({ open, setOpen }: AppBarProps) => {
         <IconButton style={{ color: "white" }} onClick={() => setOpen(!open)}>
           {open ? <RiMenuFoldLine /> : <RiMenuUnfoldLine />}
         </IconButton>
-        <p className={appBarStyles.logo}>DevOM</p>
+        <p className={appBarStyles.logo}>Om Londhe</p>
       </section>
       <section className={appBarStyles.right}>
         <IconButton style={{ color: "white" }} onClick={changeMode}>

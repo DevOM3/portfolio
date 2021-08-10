@@ -1,2 +1,47 @@
-/* .parallax { */
-/* } */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
+
+.container {
+  margin: 0;
+  padding: 0;
+  padding-left: 11px;
+  padding-right: 11px;
+  height: calc(100% - 71px);
+  overflow: scroll;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.hero {
+  padding: 11px;
+}
+
+.welcomeText {
+  margin: 0;
+  padding: 0;
+  font-size: 44px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1.1px;
+}
+
+.welcomeText span {
+  font-size: 60px;
+  -webkit-text-stroke: 1px;
+  color: transparent;
+  font-weight: 51px !important;
+  font-family: "Lato", sans-serif;
+}
+
+.heroImage {
+  margin-top: 21px;
+  height: calc(100vh - 100px);
+  width: 100%;
+  background: url("../../public/images/home.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: white;
+  border-radius: 11px;
+  background-attachment: fixed;
+}

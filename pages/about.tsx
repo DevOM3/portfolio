@@ -165,6 +165,11 @@ const About = () => {
           </div>
         </motion.div>
       </div>
+      {mode === "dark" && (
+        <div
+          style={{ background: "linear-gradient(black, #111)", height: 51 }}
+        ></div>
+      )}
       <main id="main">
         <motion.p
           className={aboutStyles.aboutText}

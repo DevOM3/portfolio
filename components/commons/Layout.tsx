@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 import React, { useEffect, useState } from "react";
 import { actionTypes } from "../../context/reducer";
@@ -67,6 +68,25 @@ const Layout = ({ children }: any) => {
 
   return (
     <div className={layoutStyles.layout}>
+      <Head>
+        <title>
+          Om Londhe |{" "}
+          {router.pathname === "/"
+            ? "Home"
+            : router.pathname === "/projects"
+            ? "Projects"
+            : router.pathname === "/achievements"
+            ? "Achievements"
+            : router.pathname === "/blog"
+            ? "Blog"
+            : router.pathname === "/contact"
+            ? "Contact"
+            : router.pathname === "/about"
+            ? "About"
+            : "Somewhere"}
+        </title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {router.pathname !== "/admin" &&
         router.pathname !== "/admin/projects" &&
         router.pathname !== "/admin/achievements" &&
@@ -89,14 +109,7 @@ const Layout = ({ children }: any) => {
         <div
           className={layoutStyles.main}
           style={{
-            border:
-              router.pathname !== "/admin" &&
-              router.pathname !== "/admin/projects" &&
-              router.pathname !== "/admin/achievements" &&
-              router.pathname !== "/admin/blog" &&
-              router.pathname !== "/admin/contact"
-                ? "4px solid white"
-                : "none",
+            border: router.pathname.includes("/admin") ? "none" : undefined,
           }}
         >
           {children}
