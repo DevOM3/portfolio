@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useStateValue } from "../context/StateProvider";
 import styles from "../styles/pages/Home.module.css";
 
@@ -9,17 +8,18 @@ export default function Home() {
     <div
       className={styles.container}
       style={{
-        background: mode === "dark" ? "#111" : "#fff",
+        background:
+          mode === "dark"
+            ? "linear-gradient(45deg, black, #111, #222)"
+            : "linear-gradient(45deg, pink, white, aquamarine)",
       }}
     >
       <div
         className={styles.hero}
-        style={{ color: mode === "dark" ? "#ddd" : "#222" }}
+        style={{
+          color: mode === "dark" ? "#ddd" : "#222",
+        }}
       >
-        <div
-          className={styles.heroImage}
-          style={{ filter: mode === "dark" ? "grayscale(100%)" : "none" }}
-        ></div>
         <p id="welcomeText" className={styles.welcomeText}>
           <span
             style={{
@@ -29,15 +29,7 @@ export default function Home() {
             Hello,
           </span>
           <br />
-          <span
-            style={{
-              fontSize: 51,
-              color: mode === "dark" ? "white" : "black",
-            }}
-          >
-            Welcome
-          </span>{" "}
-          to the web application, I am
+          Welcome to the web application, I am
           <span
             style={{
               color: mode === "dark" ? "white" : "black",
@@ -64,7 +56,7 @@ export default function Home() {
             develop
           </span>{" "}
           something that makes me satisfied. Take a look at different sections
-          to know more about me 😉.
+          to know more about me 😉 and my work 💻.
           <br />
           By the way,{" "}
           <span
@@ -76,11 +68,8 @@ export default function Home() {
             nice to meet you!
           </span>
         </p>
-        <div
-          className={styles.heroImage}
-          // style={{ filter: mode === "dark" ? "grayscale(100%)" : "none" }}
-        ></div>
       </div>
+      <div className={styles.heroImage}></div>
     </div>
   );
 }

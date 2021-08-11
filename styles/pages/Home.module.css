@@ -8,13 +8,14 @@
   height: calc(100% - 71px);
   overflow: scroll;
 }
-
 .container::-webkit-scrollbar {
   display: none;
 }
 
 .hero {
+  margin-top: 21px;
   padding: 11px;
+  backdrop-filter: blur(51px);
 }
 
 .welcomeText {
@@ -29,12 +30,13 @@
   font-size: 60px;
   -webkit-text-stroke: 1px;
   color: transparent;
-  font-weight: 51px !important;
+  font-weight: 111px !important;
   font-family: "Lato", sans-serif;
 }
 
 .heroImage {
   margin-top: 21px;
+  margin-bottom: 11px;
   height: calc(100vh - 100px);
   width: 100%;
   background: url("../../public/images/home.gif");
