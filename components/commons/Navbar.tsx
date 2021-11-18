@@ -234,32 +234,12 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
               ></b>
             </>
           )}
-          <Link href="/blog">
             <a
+            href="https://medium.com/@oplondhe"
+            target="_blank"
               className={navbarStyles.links}
-              style={{
-                background: router.pathname === "/blog" ? "white" : "black",
-                color: router.pathname === "/blog" ? "black" : "white",
-                borderRadius: mediaQueryMatch
-                  ? router.pathname === "/blog"
-                    ? 51
-                    : 11
-                  : 0,
-                borderTopLeftRadius: router.pathname === "/blog" ? 51 : 11,
-                borderBottomLeftRadius: router.pathname === "/blog" ? 51 : 11,
-              }}
             >
               <div className={navbarStyles.icon}>
-                {router.pathname === "/blog" ? (
-                  <RiPagesFill
-                    fontSize={30}
-                    className={navbarStyles.linkIcons}
-                    style={{
-                      color:
-                        router.pathname === "/blog" ? "purple" : "whitesmoke",
-                    }}
-                  />
-                ) : (
                   <RiPagesLine
                     fontSize={30}
                     className={navbarStyles.linkIcons}
@@ -268,12 +248,10 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
                         router.pathname === "/blog" ? "purple" : "whitesmoke",
                     }}
                   />
-                )}
               </div>
               {mediaQueryMatch ? <>&nbsp;</> : <>&nbsp;&nbsp;&nbsp;&nbsp;</>}
               Blog
             </a>
-          </Link>
         </li>
         <li>
           {!mediaQueryMatch && (
