@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
   const achievements = (
-    await axios.get(`https://devom-portfolio.vercel.app/api/achievements`)
+    await axios.get(`https://www.omlondhe.codes/api/achievements`)
   ).data;
 
   return {

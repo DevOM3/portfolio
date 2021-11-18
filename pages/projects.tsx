@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ) => {
   const projects = (
-    await axios.get("https://devom-portfolio.vercel.app/api/projects")
+    await axios.get("https://www.omlondhe.codes/api/projects")
   ).data;
   return {
     props: {
