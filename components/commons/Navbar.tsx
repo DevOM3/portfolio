@@ -237,6 +237,7 @@ const Navbar = ({ open, setOpen, mediaQueryMatch }: NavbarProps) => {
             <a
             href="https://medium.com/@oplondhe"
             target="_blank"
+            rel="noreferrer"
               className={navbarStyles.links}
             >
               <div className={navbarStyles.icon}>
